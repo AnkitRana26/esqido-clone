@@ -1,16 +1,49 @@
-import { Box, Image, Text } from '@chakra-ui/react'
+import { Box, Container, Image, Text } from '@chakra-ui/react'
+import { FaShoppingCart } from "react-icons/fa";
 import React from 'react'
+
+
+const cartData=[
+  {
+      id:1,
+      img:`https://cdn.shopify.com/s/files/1/0250/1519/products/esq-product-makeup-bag-b_999x999.gif?v=1628635003`,
+      name:`Companion Makeup Bag`,
+      price:28,
+      qty:1
+  },
+  {
+      id:2,
+      img:`https://cdn.shopify.com/s/files/1/0250/1519/products/esq-comp-mu-remover-product-page-white-1_1101x1101.jpg?v=1641598386`,
+      name:`Reusable Makeup Rounds (5 rounds)`,
+      price:14.98,
+      qty:1
+  }
+]
+
 
 const CartItem = () => {
   return (
     <div className='emptyCart'>
-        <Text textAlign="center"  marginBottom="0" backgroundColor="#1b2120" color="white" p="1%" fontSize="xx-large" fontWeight="bold" >Your Cart</Text>
-        <Box  display="grid" alignItems="center" fontSize="large" color="#58595B" fontWeight="semibold" justifyContent="center" h="400px" border="2px solid rgba(0,0,0,.15)">
+        <Text  display="flex" alignItems="center" justifyContent="center" gap="1%" marginBottom="0" backgroundColor="#1b2120" color="white" p="1%" fontSize="2vw" fontWeight="bold" >Your Cart <FaShoppingCart/> </Text>
+        <Box p="0% 1%" display="grid" alignItems="center" fontSize="large" color="#58595B" fontWeight="semibold"   >
+        {
+          cartData.map(ele=>{
+            return <Box p="1%" m="1%"  display="flex" gap="1%"    border="1px solid black" >
+                    <Image h="150px" w="150px" src={ele.img} />
+                    <Box p="1%" w="100%" display="flex" alignItems="center"  justifyContent="space-between"  border="1px solid black">
+                          <Box h="fit-content" border="1px solid black" >
+                              <Text p="0" m="0" fontWeight="semibold" color="black">{ele.name}</Text>
+                      
+                              <Text p="0" margin="0" color="#f43b62">Price:- ${ele.price}</Text>
+                          </Box>
+                          <Box>
+                                
+                          </Box>
+                    </Box>
+            </Box>
+        })
+        }
                     
-                    <Image width="100%" src='https://sarivillafashion.com/img/images/listing-5/empty-cart.gif' />
-                    <Text fontSize="3xl" textAlign="center" fontWeight="bold">
-                        Your Cart is Empty
-                    </Text>
         </Box>
     </div>
   )
