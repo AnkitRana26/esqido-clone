@@ -101,12 +101,16 @@ const CartItem = () => {
 
 
   return (
-    <div className='emptyCart'>
-      <Container p="1% 0%" borderBottom="1px solid rgba(0,0,0,.15)" borderTop="1px solid rgba(0,0,0,.15)" mb="1%" display="grid" gridTemplateColumns="75% 25%" alignItems="center"  justifyContent="space-between" >
+    <div className='emptyCart' >
+      
+      <Container p="1% 0%" borderBottom="1px solid rgba(0,0,0,.15)" borderTop="1px solid rgba(0,0,0,.15)" mb="1%" display="grid" gridTemplateColumns="65% 35%" alignItems="center"  justifyContent="space-between" >
         
 
           <Box display="flex" alignItems="center" backgroundColor="transparent" textAlign="left"    gap="2%" marginBottom="1%"  p="0% 5%" fontSize={isTablet?"4vw":"2.5vw"} fontWeight="600" w="60%"  >Your Cart <BsFillCartCheckFill/> </Box>
-          <Button  border="none" transition="all 0.2s linear;"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="2%" w="100%"  height="60px"  p="0" fontWeight="bold" fontSize={isTablet?"2.5vw":"1.7vw"}>  <Text display="flex" alignItems="center" >Checkout <BsCurrencyDollar/></Text></Button>
+          <Box display="grid" justifyContent="center" gridTemplateColumns="20% 80%" alignItems="center">
+            <Text fontSize={isTablet?"2.5vw":"1.7vw"}>${totalPrice()}</Text>
+            <Button  border="none" transition="all 0.2s linear;"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="2%" w="100%"  height="60px"  p="0" fontWeight="bold" fontSize={isTablet?"2.5vw":"1.7vw"}>  <Text display="flex" alignItems="center" >Checkout</Text></Button>
+          </Box>
         
       </Container>
         <Box p="2% 2%" display="grid" alignItems="center" fontSize="large" color="#58595B" fontWeight="semibold" border="1px solid rgba(0,0,0,.15)"   >
