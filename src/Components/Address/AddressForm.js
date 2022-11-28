@@ -46,14 +46,14 @@ const AddressForm = () => {
   }
 
   return (
-    <Box  padding="0% 10%" >
+    <Box backgroundColor="white" padding="0% 10%" borderRight="3px solid #e4e4e4" >
         <Image marginTop="5%" marginBottom="0%"   height="3em"  src="https://cdn.shopify.com/s/files/1/0250/1519/files/esq-logo-110419_236x65_ca22d1fc-ae73-40f7-a98a-081cfc10b4f2.png?29514" />
       <Text color="#ae867a" fontWeight="medium">
         Cart &gt; <span style={{ color: "black" }}>Information</span> &gt;
         Shipping &gt; Payment
       </Text>
       
-      <Text fontSize="1.5rem" mt="5%">
+      <Text fontSize="1.3rem" mt="5%">
         Contact Information
       </Text>
       <Box
@@ -64,14 +64,14 @@ const AddressForm = () => {
       >
         <Box
           mt="10"
-          h="70px"
+          h="60px"
           borderRadius="8px"
           bg="#d8d8d8"
         >
           <Image
             padding="0"
-            width="70px"
-            height="70px"
+            width="60px"
+            height="60px"
             src="https://www.mobisafar.com/images/user.png"
           ></Image>
         </Box>
@@ -81,7 +81,7 @@ const AddressForm = () => {
             p="0"
             color="#545454"
             mb="0"
-            fontSize="1.2rem"
+            fontSize="1rem"
           >
             <span>{"Ankit Rana"}</span>{" "}
             <span>({"ranaankitr@outlook.com"})</span>
@@ -101,7 +101,7 @@ const AddressForm = () => {
         
       </Box>
 
-      <Text fontSize="1.5rem" mt="5%">
+      <Text fontSize="1.3rem" mt="5%">
         Shipping address
       </Text>
 

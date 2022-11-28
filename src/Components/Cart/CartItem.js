@@ -51,10 +51,6 @@ const CartItem = () => {
   const [cart,setCart] = useState(cartData);
   const [isTablet] = useMediaQuery("(max-width: 900px)") 
 
-  useEffect(()=>{
-
-  },[cart])
-
 
   const handleChange =(id,value)=>{
       let newCart = [];
@@ -103,13 +99,13 @@ const CartItem = () => {
   return (
     <div className='emptyCart' >
       
-      <Container p="1% 0%" borderBottom="1px solid rgba(0,0,0,.15)" borderTop="1px solid rgba(0,0,0,.15)" mb="1%" display="grid" gridTemplateColumns="65% 35%" alignItems="center"  justifyContent="space-between" >
+      <Container p="1% 0%" borderBottom="1px solid rgba(0,0,0,.15)" borderTop="1px solid rgba(0,0,0,.15)" mb="1%" display="grid" gridTemplateColumns="70% 30%" alignItems="center"  justifyContent="space-between" >
         
 
           <Box display="flex" alignItems="center" backgroundColor="transparent" textAlign="left"    gap="2%" marginBottom="1%"  p="0% 5%" fontSize={isTablet?"4vw":"2.5vw"} fontWeight="600" w="60%"  >Your Cart <BsFillCartCheckFill/> </Box>
-          <Box display="grid" justifyContent="center" gridTemplateColumns="20% 80%" alignItems="center">
-            <Text fontSize={isTablet?"2.5vw":"1.7vw"}>${totalPrice()}</Text>
-            <Button  border="none" transition="all 0.2s linear;"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="2%" w="100%"  height="60px"  p="0" fontWeight="bold" fontSize={isTablet?"2.5vw":"1.7vw"}>  <Text display="flex" alignItems="center" >Checkout</Text></Button>
+          <Box display="grid"  justifyContent="space-between" gridTemplateColumns={isTablet?"40% 60%":"50% 50%"} alignItems="center">
+            <Text textAlign="center" fontSize={isTablet?"2.5vw":"1.7vw"}>${totalPrice()}</Text>
+            <Button float="right"  border="none" transition="all 0.2s linear;"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="2%" w="100%"  height={isTablet?"40px":"50px"}  p="0" fontWeight="bold" fontSize={isTablet?"2.5vw":"1.7vw"}>  <Text display="flex" alignItems="center" >Checkout</Text></Button>
           </Box>
         
       </Container>
@@ -117,7 +113,7 @@ const CartItem = () => {
         {
           cart.map(ele=>{
             return <Box key={ele.id} p="1%" m="1%"  display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"25% 75%"}   gap="1%" borderBottom="1px solid rgba(0,0,0,.15)" >
-                    <Image h="200px" w="200px" margin={isTablet?"auto":""} src={ele.img} />
+                    <Image h="150px" w="150px" margin={isTablet?"auto":""} src={ele.img} />
                     <Box p="1%" w="100%" display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"65% 35%"}  alignItems="center"  justifyContent="space-between" >
                           <Box h="fit-content" textAlign={isTablet?"center":"left"} >
                               <Text p="0" m="0" fontWeight="600" color="black">{ele.name}</Text>
@@ -127,7 +123,7 @@ const CartItem = () => {
                           <Box display="flex" alignItems="center"  justifyContent="space-between"  >
                                 <Box>
                                     <FormControl fullWidth  >
-                                            <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                                            <InputLabel id="demo-simple-select-label">Qty</InputLabel>
                                             <Select 
                                                 sx={{width:"80px"}}
                                                 labelId="demo-simple-select-label"
@@ -165,7 +161,7 @@ const CartItem = () => {
           <Text>${totalPrice()}</Text>
         </Box>
         <Text mt="8%" fontSize={isTablet?"2.5vw":"1.3vw"}>*Shipping & taxes calculated at checkout</Text>
-        <Button transition="all 0.2s linear;"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="1%" height="70px" border="none" w="100%" p="0" fontWeight="bold" fontSize={isTablet?"3vw":"1.7vw"}> <AiOutlineShoppingCart h="fit-content" /> <Text h="fit-content" >Checkout</Text></Button>
+        <Button transition="all 0.2s linear;"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="1%"  height={isTablet?"50px":"70px"} border="none" w="100%" p="0" fontWeight="bold" fontSize={isTablet?"3vw":"1.7vw"}> <AiOutlineShoppingCart h="fit-content" /> <Text h="fit-content" >Checkout</Text></Button>
         <Box  display="flex" justifyContent="center" gap="1%" p="3% 0%">
           <Button border="none" bg="transparent" borderRadius="8px" > <Image borderRadius="8px" width="120px" height="55px" src={shopPay}/> </Button>
           <Button border="none" bg="transparent" borderRadius="8px" > <Image borderRadius="8px" width="120px" height="55px" src={payPal}/> </Button>
