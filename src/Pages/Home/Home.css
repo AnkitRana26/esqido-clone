@@ -1,0 +1,16 @@
+#first img{
+    width: 100%;
+    height: 700px;
+}
+.tags{
+    width: 100%;
+    height: 100px;
+    /* display: flex;
+    gap: 20px; */
+    text-align: center;
+    padding-top: 50px;
+    background-color: #F5F5F5;
+}
+.tags img{
+    width: 10%;
+}
