@@ -6,8 +6,8 @@ import Home from '../Pages/Home/Home';
 function App() {
   return (
     <div className="App">
-              {/* <Cart/> */}
-              <Home/>
+              <Cart/>
+              {/* <Home/> */}
     </div>
   );
 }
