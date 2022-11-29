@@ -1,4 +1,9 @@
 import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
   Box,
   Button,
   // Button,
@@ -19,6 +24,8 @@ import {
 import shopPay from "../Cart/shopPay.png"
 import payPal from "../Cart/payPal.png"
 import gPay from "../Cart/gPay.jpg"
+import MiniCart from "../MiniCart/MiniCart";
+import { BsFillCartCheckFill } from "react-icons/bs";
 
 const initialForm = {
   country: "",
@@ -52,6 +59,26 @@ const AddressForm = () => {
         Shipping &gt; Payment
       </Text>
       
+      {isTablet?<Accordion  allowMultiple>
+                <AccordionItem>
+                        <h2>
+                          <AccordionButton border="none">
+                            <Box flex='1' alignItems="center" textAlign='center' p="2% 0%" >
+                            <BsFillCartCheckFill/> Show/Hide Order Summary
+                            </Box>
+                            <AccordionIcon />
+                          </AccordionButton>
+                        </h2>
+                        <AccordionPanel pb={4}>
+                          <MiniCart/>
+                          <hr/>
+                        </AccordionPanel>
+                </AccordionItem>
+      </Accordion>:""}
+
+
+
+
       <Text fontSize="1.3rem" mt="5%">
         Contact Information
       </Text>
@@ -143,11 +170,15 @@ const AddressForm = () => {
           label="Email me with news and offers"
         />
         <Box display="flex" justifyContent="space-between" alignItems="center"  >
-            <Text color="#a07264" m="0 0" fontSize="1.4rem" >&#60; Return to cart</Text>
-            <Button  border="none" transition="all 0.2s linear;" borderRadius="5px"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="2%" w="30%"  height="50px"  p="0" fontWeight="bold" fontSize={isTablet?"2.5vw":"1.7vw"}>  <Text display="flex" alignItems="center" >Sumbit</Text></Button>
+            <Text _hover={{color:"pink"}} cursor="pointer" p="8px" borderRadius="8px" color="#a07264" m="0 0" fontSize="1rem" >&#60; Return to cart</Text>
+            <Button  border="none" transition="all 0.2s linear;" borderRadius="5px"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="2%" w="27%"  height="45px"  p="0" fontWeight="bold" fontSize={isTablet?"2.5vw":"1.7vw"}>  <Text display="flex" alignItems="center" >Sumbit</Text></Button>
         </Box>
-        
       </FormControl>
+      <Box display="flex" gap="5%">
+        <Text fontSize="0.8rem" p="0" color="#a07264" bg="transparent" border="none">Refund Policy</Text>
+        <Text fontSize="0.8rem" p="0" color="#a07264" bg="transparent" border="none">Privacy Policy</Text>
+        <Text fontSize="0.8rem" p="0" color="#a07264" bg="transparent" border="none">Terms of Service</Text>
+      </Box>
     </Box>
   );
 };
