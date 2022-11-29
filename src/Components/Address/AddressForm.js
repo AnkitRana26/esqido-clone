@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Button,
   Image,
   Text,
   useMediaQuery,
