@@ -1,7 +1,7 @@
 import {
   Box,
   Button,
-  Button,
+  // Button,
   Image,
   Text,
   useMediaQuery,
@@ -15,7 +15,7 @@ import {
   
 } from "@mui/material";
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import shopPay from "../Cart/shopPay.png"
 import payPal from "../Cart/payPal.png"
 import gPay from "../Cart/gPay.jpg"
