@@ -1,0 +1,6 @@
+#image-box{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    align-items: center;
+    margin: auto;
+}
