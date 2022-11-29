@@ -7,7 +7,7 @@ import "./Address.css"
 
 const Address = () => {
 
-    let [isTablet] = useMediaQuery(['(max-width:1500px)'])
+    let [isTablet] = useMediaQuery('(max-width:900px)')
 
     useEffect(()=>{
         console.log(isTablet)
@@ -17,11 +17,11 @@ const Address = () => {
     
 
   return(
-        <Box border="1px solid red" backgroundColor="rgb(255,255,255)"  overflowX="hidden" w="100%" height="fit-content" m="auto" display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"60% 40%"} >
+        <Box border="1px solid red" backgroundColor="rgb(255,255,255)"  overflowX="hidden" w="100%" height="fit-content" m="auto" display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"65% 35%"} >
             
             <AddressForm/>
-            <Box display={isTablet?"none":"block"}   >
-                <MiniCart />
+            <Box backgroundColor="rgba(251,250,251,255)" display={isTablet?"none":"block"}   >
+                <MiniCart position={"fixed"} />
             </Box>
             
         </Box>
