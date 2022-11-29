@@ -118,7 +118,7 @@ const CartItem = () => {
                           <Box h="fit-content" textAlign={isTablet?"center":"left"} >
                               <Text p="0" m="0" fontWeight="600" color="black">{ele.name}</Text>
                       
-                              <Text p="0" margin="0" fontWeight="600" color="#f43b62">Price:- ${ele.price}/Unit</Text>
+                              <Text p="0" margin="0" fontWeight="600" color="#ae867a">Price:- ${ele.price}/Unit</Text>
                           </Box>
                           <Box display="flex" alignItems="center"  justifyContent="space-between"  >
                                 <Box>
@@ -146,7 +146,7 @@ const CartItem = () => {
                                 </Box>
                                 <Box fontSize="1.5vw"  w={isTablet?"20%":"50%"}  display="flex" alignItems="center" justifyContent="space-around">
                                   <Text>${ele.price*ele.qty}</Text>
-                                  <AiFillDelete color="#f43b62" onClick={()=>removeCart(ele.id)}/>
+                                  <AiFillDelete color="#ae867a" onClick={()=>removeCart(ele.id)}/>
 
                                 </Box>
                           </Box>

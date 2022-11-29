@@ -117,7 +117,7 @@ const totalPrice =()=>{
                         <Box h="fit-content" textAlign={isTablet?"center":"left"} >
                             <Text p="0" m="0" fontSize="0.8rem" fontWeight="600" color="black">{ele.name}</Text>
                     
-                            <Text p="0" margin="0" fontWeight="600" fontSize="0.7rem" color="#f43b62">Price:- ${ele.price}/Unit</Text>
+                            <Text p="0" margin="0" fontWeight="600" fontSize="0.7rem" color="#ae867a">Price:- ${ele.price}/Unit</Text>
                         </Box>
                         <Box display="flex" alignItems="center"  justifyContent="space-between"  >
                               <Box>

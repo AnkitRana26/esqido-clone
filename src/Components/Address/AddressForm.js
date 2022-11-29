@@ -53,8 +53,8 @@ const AddressForm = () => {
 
   return (
     <Box backgroundColor="white" padding="0% 10%" borderRight="3px solid #e4e4e4" >
-        <Image marginTop="5%" marginBottom="0%"   height="3em"  src="https://cdn.shopify.com/s/files/1/0250/1519/files/esq-logo-110419_236x65_ca22d1fc-ae73-40f7-a98a-081cfc10b4f2.png?29514" />
-      <Text color="#ae867a" fontWeight="medium">
+        <Image marginTop="5%" marginBottom="0%"   height="2.8em"  src="https://cdn.shopify.com/s/files/1/0250/1519/files/esq-logo-110419_236x65_ca22d1fc-ae73-40f7-a98a-081cfc10b4f2.png?29514" />
+      <Text fontSize="0.8rem" color="#ae867a" fontWeight="medium">
         Cart &gt; <span style={{ color: "black" }}>Information</span> &gt;
         Shipping &gt; Payment
       </Text>

@@ -17,7 +17,7 @@ const Address = () => {
     
 
   return(
-        <Box border="1px solid red" backgroundColor="rgb(255,255,255)"  overflowX="hidden" w="100%" height="fit-content" m="auto" display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"65% 35%"} >
+        <Box  backgroundColor="rgb(255,255,255)"  overflowX="hidden" w="100%" height="fit-content" m="auto" display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"65% 35%"} >
             
             <AddressForm/>
             <Box backgroundColor="rgba(251,250,251,255)" display={isTablet?"none":"block"}   >
