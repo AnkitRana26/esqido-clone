@@ -14,6 +14,26 @@ function Home(){
                 <img src="https://cdn.shopify.com/s/files/1/0382/2949/t/48/assets/pf-ab53130a--huffpostlogo.png?v=1630948222"/>
                 <img src="https://cdn.shopify.com/s/files/1/0382/2949/t/48/assets/pf-c6ab5313--flarelogo.png?v=1630948219"/>
             </div>
+            <div id="second">
+                <div><h2>We created Esqido to be a new class of beauty.</h2></div>
+                <div id="second_child">
+                    <div className="beuty">
+                        <img src="https://cdn.shopify.com/s/files/1/0382/2949/t/48/assets/pf-f25e9c2d--fairprices.png?v=1630955015"/>
+                        <h4>FAIR PRICES</h4>
+                        <p>By selling directly to you from our factories, you get a high-end product at a great price.</p>
+                    </div>
+                    <div className="beuty">
+                        <img src="https://cdn.shopify.com/s/files/1/0382/2949/t/48/assets/pf-f25e9c2d--fairprices.png?v=1630955015"/>
+                        <h4>FAIR PRICES</h4>
+                        <p>By selling directly to you from our factories, you get a high-end product at a great price.</p>
+                    </div>
+                    <div className="beuty">
+                        <img src="https://cdn.shopify.com/s/files/1/0382/2949/t/48/assets/pf-f25e9c2d--fairprices.png?v=1630955015"/>
+                        <h4>FAIR PRICES</h4>
+                        <p>By selling directly to you from our factories, you get a high-end product at a great price.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
