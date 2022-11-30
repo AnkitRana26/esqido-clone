@@ -18,6 +18,8 @@
     width: 100%;
     height: 400px;
     padding-top: 30px;
+    /* padding-left: 40px;
+    padding-right: 160px; */
     text-align: center;
 }
 #second_child{
@@ -26,4 +28,74 @@
 }
 #second_child img{
     width: 10%;
+}
+/* .beuty p{
+    padding: 20px;
+    /* width: 80%;
+    text-align: center; 
+} */
+#third{
+    background-color: #F5F5F5;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 100px;
+    padding: 40px;
+}
+#third >div:nth-child(2){
+    /* margin-right: 20%; */
+    width: 80%;
+    /* border: 1px solid red; */
+}
+#third >div:first-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding-left: 28%;
+}
+#third img{
+    width: 100%;
+}
+#fourth{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 100px;
+    padding: 40px;
+}
+#fourth>div:first-child{
+    width: 80%;
+    padding-left: 28%;
+}
+#fourth img{
+    width: 100%;
+}
+#fourth >div:nth-child(2){
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    /* padding-left: 28%; */
+}
+#fifth{
+    background-color: #F2F2F2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 100px;
+    padding: 40px;
+}
+#fifth >div:nth-child(2){
+    /* margin-right: 20%; */
+    width: 80%;
+    /* border: 1px solid red; */
+}
+#fifth >div:first-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding-left: 28%;
+}
+#fifth img{
+    width: 100%;
 }
