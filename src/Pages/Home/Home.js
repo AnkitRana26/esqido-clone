@@ -49,7 +49,7 @@ function Home(){
 
 
     return (
-        <div>
+        <div id="check">
             <Navbar/>
             <div id="first"> <img src="https://cdn.shopify.com/s/files/1/0250/1519/t/14/assets/esqholiday111522desktop-1668553327744.jpg?v=1668553329" /></div>
             <div className="tags">
@@ -115,10 +115,12 @@ function Home(){
                     {details.map((item) => (
                         <div className="card">
                         <div className="card-top">
-                            <img src={item.img}/>
-                            <h3>{item.title}</h3>
-                            <h4>{item.handle}</h4>
-                            <h4>{item.prof}</h4>
+                            <div><img src={item.img}/></div>
+                            <div>
+                                <h3>{item.title}</h3>
+                                <h4>{item.handle}</h4>
+                                <h4>{item.prof}</h4>
+                            </div>
                         </div>
                         <div className="card-bottom">
                             <p>{item.desc}</p>

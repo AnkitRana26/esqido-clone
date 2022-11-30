@@ -1,7 +1,15 @@
 import React from "react";
+import { useRef } from "react";
 import './Navbar.css';
 
+
 function Navbar(){
+
+    let refer = useRef()
+    setTimeout(() => {
+        console.log(refer);
+    }, 5000);
+    
 
     return (
         <div className="navbar">
@@ -18,9 +26,9 @@ function Navbar(){
                 </div>
                 
             </div>
-            <div id="bottom">
+            <div id="bottom" ref={refer}>
                 <div><img src="https://cdn.shopify.com/s/files/1/0250/1519/files/esq-logo-110419_236x65_ca22d1fc-ae73-40f7-a98a-081cfc10b4f2_147x41.png?v=1634502882"/></div>
-                <div className="navCont">
+                <div id="navCont">
                     <p>SHOP</p>
                     <p>OUR STORY</p>
                     <p>REVIEWS</p>

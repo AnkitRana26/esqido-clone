@@ -6,6 +6,10 @@
     grid-template-columns: repeat(5, 1fr);
     padding: 50px;
 }
+#section>div:first-child>p{
+    /* border: 1px solid red; */
+    width: 80%;
+}
 #logo{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -27,3 +31,24 @@
 #logo>div>svg{
     width: 100%;
 }
+
+@media screen and (min-width:700px) and (max-width: 1030px) {
+    #section {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+    #logo{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media screen and (min-width:300px) and (max-width: 699px) {
+    #section {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+    #logo{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+  }
