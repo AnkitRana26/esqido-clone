@@ -99,3 +99,46 @@
 #fifth img{
     width: 100%;
 }
+#sixParent{
+    text-align: center;
+}
+#sixth{
+    width: 70%;
+    height: 400px;
+    padding: 30px;
+    margin: auto;
+    align-items: center;
+    /* background-color: aqua; */
+}
+.slick-slide>div{
+    margin: 0 10px;
+}
+.slick-list{
+    margin: 0 -10px;
+}
+.card{
+    border: 3px solid black;
+    overflow: hidden;
+    /* width: 30%;
+    height: 200px; */
+}
+.card-top>img{
+    width: 20%;
+}
+#last{
+    background-color: #DAE1D3;
+    text-align: center;
+    margin-top: 120px;
+    padding-top: 50px;
+}
+#last>h3{
+    background-color: black;
+    color: white;
+    width: 280px;
+    padding: 10px;
+    margin: auto;
+    /* text-align: center; */
+}
+#last>img{
+    width: 73%;
+}

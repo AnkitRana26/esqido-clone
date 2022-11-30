@@ -1,10 +1,54 @@
 import React from "react";
 import './Home.css';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import {details} from './data';
+import Navbar from "../../Components/Home/Navbar";
 
 function Home(){
 
+
+    const settings = {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        initialSlide: 0,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      };
+
+
+
     return (
         <div>
+            <Navbar/>
             <div id="first"> <img src="https://cdn.shopify.com/s/files/1/0250/1519/t/14/assets/esqholiday111522desktop-1668553327744.jpg?v=1668553329" /></div>
             <div className="tags">
                 <img src="https://cdn.shopify.com/s/files/1/0382/2949/t/48/assets/pf-130af71d--r29logo.png?v=1630948229"/>
@@ -57,6 +101,33 @@ function Home(){
                     <p>Free from unwanted additives such as paraben and formaldehyde, this liner is designed and formulated to leave you with beautiful eyes without irritation.</p>
                 </div>
                 <div><img src="https://cdn.shopify.com/s/files/1/0382/2949/t/48/assets/pf-4a3b9102--esqhomepagegentleformula3.jpg?v=1627256774"/></div>
+            </div>
+            <div id="sixParent">
+                <h1>Trusted by the Pros</h1>
+                <h3>See why makeup artists around the world are raving about us.</h3>
+                <div id="sixth">
+                    <Slider {...settings}>
+                    {details.map((item) => (
+                        <div className="card">
+                        <div className="card-top">
+                            <img src={item.img}/>
+                            <h3>{item.title}</h3>
+                            <h4>{item.handle}</h4>
+                            <h4>{item.prof}</h4>
+                        </div>
+                        <div className="card-bottom">
+                            <p>{item.desc}</p>
+                        </div>
+                    </div>
+                    ))}
+                    </Slider>  
+                </div>
+            
+            </div>
+            <div id="last">
+                <h1>Get the smooth and precise look, all day long.</h1>
+                <h3>Shop the Gel Pencil Eyeliner</h3>
+                <img src="https://cdn.shopify.com/s/files/1/0250/1519/t/14/assets/esqfranlinerblackcompressed-1635290028363.jpg?v=1635290029"/>
             </div>
         </div>
     )
