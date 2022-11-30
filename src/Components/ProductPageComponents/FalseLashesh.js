@@ -18,6 +18,7 @@ const FalseData=[
         discount:35,
         reviews:124,
         points:699,
+        discount:35,
     },
     {
         img1:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-unisyn-v2-natural-bundle_523x523.jpg?v=1647362015",
@@ -31,6 +32,7 @@ const FalseData=[
         discount:26,
         reviews:124,
         points:399,
+        discount:26,
     },
     {
         img1:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-unisyn-v2-glam-bundle_523x523.jpg?v=1647362049",
@@ -44,6 +46,7 @@ const FalseData=[
         discount:26,
         reviews:124,
         points:399,
+        discount:26,
     },
     {
         img1:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-unisyn-v2-product-page-breadbutter_523x523.jpg?v=1643403579",
@@ -57,6 +60,7 @@ const FalseData=[
         discount:30,
         reviews:124,
         points:270,
+        discount:30,
     },
     {
         img1:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-unisyn-v2-product-page-rhythmflow_523x523.jpg?v=1643641274",
@@ -70,6 +74,7 @@ const FalseData=[
         discount:30,
         reviews:124,
         points:270,
+        discount:30,
     },
     {
         img1:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-unisyn-v2-product-page-rhythmflow_523x523.jpg?v=1643641274",
@@ -83,6 +88,7 @@ const FalseData=[
         discount:30,
         reviews:124,
         points:270,
+        discount:30,
     },
     {
         img1:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-unisyn-v2-product-page-rhythmflow_523x523.jpg?v=1643641274",
@@ -96,6 +102,7 @@ const FalseData=[
         discount:30,
         reviews:135,
         points:321,
+        discount:30,
     },
     {
         img1:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-unisyn-v2-product-page-rhythmflow_523x523.jpg?v=1643641274",
@@ -109,6 +116,7 @@ const FalseData=[
         discount:30,
         reviews:120,
         points:98,
+        discount:30,
     },
     {
         img1:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-unisyn-v2-product-page-rhythmflow_523x523.jpg?v=1643641274",
@@ -122,6 +130,7 @@ const FalseData=[
         discount:30,
         reviews:654,
         points:345,
+        discount:30,
     },
     {
         img1:"//cdn.shopify.com/s/files/1/0250/1519/products/esqido-accessories-eyelash-companion-glue-open-bsamz-b_384x384.jpg?v=1662475132",
@@ -135,6 +144,7 @@ const FalseData=[
         discount:20,
         reviews:990,
         points:280,
+        discount:24,
     },
     {
         img1:"//cdn.shopify.com/s/files/1/0250/1519/products/esq-product-page-applicator-1_384x384.jpg?v=1644364787",
@@ -148,31 +158,38 @@ const FalseData=[
         discount:30,
         reviews:6,
         points:140,
-
+        discount:28,
     },
     
 
 ]
  
 const FalseLashesh = () => {
-    return <div className='false_lashesh'>
-        <Box><span>Home </span>{`>`}<span>Unisyn False Lashes</span></Box>
-        <Box w="100%"><Image w="100%" src="//cdn.shopify.com/s/files/1/0250/1519/collections/esq-unisyn-false-eyelashes-collection-banner_1350x507.jpg?v=1643666933" /></Box>
-        <Heading as="h1" >Unisyn False Lashes</Heading>
-        <Text>Discover Unisyn™ lashes, the world's first true premium synthetic false eyelashes, made with a blend of ultra-fine synthetic fibres for an ultra-natural look.</Text>
+    return <Box mt={30} className='false_lashesh' >
+        <Box ml={30} mb={20}><span style={{color:"#ae867a",fontSize:"20px"}}>Home </span>{`>`}<span style={{color:"#58595b",fontSize:"20px"}}>Unisyn False Lashes</span></Box>
+        <Box w="96%"  m="auto"><Image w="100%" 
+        
+        src="//cdn.shopify.com/s/files/1/0250/1519/collections/esq-unisyn-false-eyelashes-collection-banner_1350x507.jpg?v=1643666933" /></Box>
+        <Box ml={30}>
+        <Heading as="h1" fontWeight="700" fontSize="2em" >Unisyn False Lashes</Heading>
+        <Text color="#58595b">Discover Unisyn™ lashes, the world's first true premium synthetic false eyelashes, made with a blend of ultra-fine synthetic fibres for an ultra-natural look.</Text>
+        </Box>
         <Grid gridTemplateColumns='repeat(4,1fr)' gap={20}>
         {FalseData.map((ele,i)=>{
 
-            return <GridItem key={i}>
+            return <GridItem textAlign="center" key={i}>
+                <Box textAlign="center" >
                 <Image boxSize='300px' src={ele.img1} />
-                <Text>{ele.title}</Text>
-                <Text>${ele.mrp}USD</Text>
-                <Text>${ele.price} USD</Text>
+                <Box bgColor="#ae867a" left="0"  w="30%" m="auto" top="0" color="white" p="3px">save {ele.discount} %</Box>
+                </Box>
+                <Text color="#58595b">{ele.title}</Text>
+                <Text color="#ae867a" textDecoration="line-through">${ele.mrp}USD</Text>
+                <Text color="#1b2120">${ele.price} USD</Text>
             </GridItem>
             
         })}
         </Grid>
-    </div>;
+    </Box>;
 }
 
 
