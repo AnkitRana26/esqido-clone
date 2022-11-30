@@ -157,14 +157,14 @@ const totalPrice =()=>{
 
         <Box>
         <FormControl fullWidth sx={{ display: "grid",gridTemplateColumns:"69% 30%", gap: "3px",margin:"4% 0%" }}>
-        <input style={{padding:"0% 4%"}} ref={refrence} type="text" placeholder="Enter Coupon" />
+        <input style={{padding:"0% 4%",outline:"none"}} ref={refrence} type="text" placeholder="Enter Coupon" />
         <Button onClick={()=>{
           console.log("Hello");
           if(refrence.current.value==="Masai10"){
             setDiscount(totalPrice()*10/100);
           }
           // reference.current.value="";
-        }}  border="none" transition="all 0.2s linear;" borderRadius="5px"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="2%" w="100%" h="40px"   p="0" fontWeight="bold" fontSize={isTablet?"2.5vw":"1rem"}>  <Text display="flex" alignItems="center" >Apply</Text></Button>
+        }}  border="none" transition="all 0.2s linear;" borderRadius="5px"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="2%" w="100%" h="40px"   p="0" fontWeight="medium" fontSize={isTablet?"2.5vw":"1rem"}>  <Text display="flex" alignItems="center" >Apply</Text></Button>
 
         </FormControl>
         </Box>
