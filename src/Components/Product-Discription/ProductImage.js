@@ -1,5 +1,4 @@
 import { Box, Image } from "@chakra-ui/react";
-import { useState } from "react";
 import './ProductImage.css'
 
 function ProductImage(prop) {

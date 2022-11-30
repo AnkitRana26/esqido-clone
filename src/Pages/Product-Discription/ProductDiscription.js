@@ -4,6 +4,7 @@ import Discription from "../../Components/Product-Discription/Discription";
 import ImageBox from "../../Components/Product-Discription/ImageBox";
 import './ProductDiscription.css'
 import { Reviews } from "../../Components/Product-Discription/reviews/Reviews";
+import { AcordianDiscription } from "../../Components/Product-Discription/acordianDiscription/AccordianDiscription";
 function ProductDiscription() {
   return(
     <div className="mainDiv">
@@ -14,7 +15,8 @@ function ProductDiscription() {
         <Discription/>
         
   </div>
-  <Reviews/>
+        <AcordianDiscription/>
+        <Reviews/>
   </div>
   ) 
 }

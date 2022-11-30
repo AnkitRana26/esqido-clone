@@ -36,7 +36,76 @@ export const Reviews = () => {
             <div className="logoContainer">
             <img className="logoImage" src="https://m.media-amazon.com/images/I/31Cd9UQp6eL._SX355_.jpg" alt="logo" />
             <div>
-            <h3>Hem Lata</h3>
+            <h3>Breda Martin</h3>
+            <p className="verified">Verified</p>
+            </div>
+            
+            </div>
+            
+           
+            <div>
+              <StarIcon color={"#C2A284"} />
+              <StarIcon color={"#C2A284"} />
+              <StarIcon color={"#C2A284"} />
+              <StarIcon color={"#C2A284"} />
+              <StarIcon color={"#C2A284"} />
+            </div>
+            <p>
+            Excellent
+Is very comfortable
+            </p>
+          </div>
+          <div className="">
+            <div className="logoContainer">
+            <img className="logoImage" src="https://m.media-amazon.com/images/I/31Cd9UQp6eL._SX355_.jpg" alt="logo" />
+            <div>
+            <h3>Barbara C Branch</h3>
+            <p className="verified">Verified</p>
+            </div>
+            
+            </div>
+            
+           
+            <div>
+              <StarIcon color={"#C2A284"} />
+              <StarIcon color={"#C2A284"} />
+              <StarIcon color={"#C2A284"} />
+              <StarIcon color={"#C2A284"} />
+              <StarIcon color={"#C2A284"} />
+            </div>
+            <p>
+            Companion bag
+It is nice & light & roomy.
+            </p>
+          </div>
+          <div className="">
+            <div className="logoContainer">
+            <img className="logoImage" src="https://m.media-amazon.com/images/I/31Cd9UQp6eL._SX355_.jpg" alt="logo" />
+            <div>
+            <h3>Flo Morcom</h3>
+            <p className="verified">Verified</p>
+            </div>
+            
+            </div>
+            
+           
+            <div>
+              <StarIcon color={"#C2A284"} />
+              <StarIcon color={"#C2A284"} />
+              <StarIcon color={"#C2A284"} />
+              <StarIcon color={"#C2A284"} />
+              <StarIcon color={"#C2A284"} />
+            </div>
+            <p>
+            Love it
+Love the Companion Makeup Bag, everything fits in perfectly but the colour is a bit boring. Otherwise it is fabulous.
+            </p>
+          </div>
+          <div className="">
+            <div className="logoContainer">
+            <img className="logoImage" src="https://m.media-amazon.com/images/I/31Cd9UQp6eL._SX355_.jpg" alt="logo" />
+            <div>
+            <h3>Nenina Martinez</h3>
             <p className="verified">Verified</p>
             </div>
             
@@ -59,7 +128,7 @@ export const Reviews = () => {
             <div className="logoContainer">
             <img className="logoImage" src="https://m.media-amazon.com/images/I/31Cd9UQp6eL._SX355_.jpg" alt="logo" />
             <div>
-            <h3>Hem Lata</h3>
+            <h3>Cristina Fabbrini</h3>
             <p className="verified">Verified</p>
             </div>
             
@@ -74,77 +143,8 @@ export const Reviews = () => {
               <StarIcon color={"#C2A284"} />
             </div>
             <p>
-              The Best This is the best eyelash glue I have tried, and I have tried
-              a lot. I highly recommend it.
-            </p>
-          </div>
-          <div className="">
-            <div className="logoContainer">
-            <img className="logoImage" src="https://m.media-amazon.com/images/I/31Cd9UQp6eL._SX355_.jpg" alt="logo" />
-            <div>
-            <h3>Hem Lata</h3>
-            <p className="verified">Verified</p>
-            </div>
-            
-            </div>
-            
-           
-            <div>
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-            </div>
-            <p>
-              The Best This is the best eyelash glue I have tried, and I have tried
-              a lot. I highly recommend it.
-            </p>
-          </div>
-          <div className="">
-            <div className="logoContainer">
-            <img className="logoImage" src="https://m.media-amazon.com/images/I/31Cd9UQp6eL._SX355_.jpg" alt="logo" />
-            <div>
-            <h3>Hem Lata</h3>
-            <p className="verified">Verified</p>
-            </div>
-            
-            </div>
-            
-           
-            <div>
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-            </div>
-            <p>
-              The Best This is the best eyelash glue I have tried, and I have tried
-              a lot. I highly recommend it.
-            </p>
-          </div>
-          <div className="">
-            <div className="logoContainer">
-            <img className="logoImage" src="https://m.media-amazon.com/images/I/31Cd9UQp6eL._SX355_.jpg" alt="logo" />
-            <div>
-            <h3>Hem Lata</h3>
-            <p className="verified">Verified</p>
-            </div>
-            
-            </div>
-            
-           
-            <div>
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-            </div>
-            <p>
-              The Best This is the best eyelash glue I have tried, and I have tried
-              a lot. I highly recommend it.
+            Perfect, as usual
+I have nothing more to add but: perfect. It is difficult to get back to normal eye pencil once you get used to this one… I’d rather say impossibile :)
             </p>
           </div>
     </div>

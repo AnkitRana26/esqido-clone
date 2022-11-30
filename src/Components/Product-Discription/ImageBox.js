@@ -1,9 +1,9 @@
-import { Box } from "@chakra-ui/react";
-import Carousel from 'react-bootstrap/Carousel';
+
 import ImageList from "./ImageList";
 import ProductImage from "./ProductImage";
 import './ImageBox.css'
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
 
 let arr = [
     "https://cdn.shopify.com/s/files/1/0250/1519/products/esq-product-makeup-bag-b_640x640.gif?v=1628635003",
