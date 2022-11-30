@@ -49,25 +49,18 @@ let ProductData=[
         points:149,
     },
     {
-        img1:"https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/d/4/d4647fdMAMAE00000439_1.jpg",
-        title:"Companion Eyelash Glue",
-        price:32,
+        img1:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-liner-product-page-092822_2336b2a2-1a54-45d7-abe7-d907428b7a1c_720x721.jpg?v=1664497756",
+        img2:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-liner-4-colour-before-after_242x242.gif?v=1664497756",
+        img3:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-img-ad-060922-product-detail-4a_242x242.jpg?v=1664497756",
+
+        title:"Smudge-free Eyeliner",
+        mrp:18.00,
+        price:13.50,
+        discount:35,
+        reviews:6443,
+        points:270,
     },
-    {
-        img1:"https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/7/9/7964a078904325004014.jpg",
-        title:"Companion Eyelash Glue",
-        price:19,
-    },
-    {
-        img1:"https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/0/6/066c973N_8904052432975_1.jpg",
-        title:"Companion Eyelash Glue",
-        price:25,
-    },
-    {
-        img1:"https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/0/f/0f92e506902395234708.jpg",
-        title:"Companion Eyelash Glue",
-        price:21,
-    }
+    
 ]
 const Accessories=()=>{
     const [sort,setSort]=useState("");
@@ -93,6 +86,11 @@ const Accessories=()=>{
 
    }
 
+   const handleImage=(img3,i)=>{
+    console.log(1);
+    document.getElementById(i).src=img3;
+}
+
     return (
         <Box p={50}className="accessories_comp" bg="#ffffff">
            
@@ -112,7 +110,10 @@ const Accessories=()=>{
                     //  <CardBody key={i}>
                     
                         <GridItem key={i}>
-                            <Image boxSize='300px' src={ele.img1} />
+                            <Box pos="relative">
+                            <Image id={i} onMouseLeave={()=>handleImage(ele.img1,i)} onMouseEnter={()=>handleImage(ele.img3,i)} boxSize='300px' w="100%"src={ele.img1} />
+                            <Box pos="absolute" bottom="1%" left="0" height="fit-content" bgColor="#ae867a"   w="30%" m="auto" color="white" p="3px">save {ele.discount} %</Box>
+                            </Box>
                             <Text>{ele.title}</Text>
                             <Text>${ele.price} USD</Text>
                         </GridItem>

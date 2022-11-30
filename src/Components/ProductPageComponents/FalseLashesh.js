@@ -165,6 +165,11 @@ const FalseData=[
 ]
  
 const FalseLashesh = () => {
+
+    const handleChange=(img3,i)=>{
+        console.log(1);
+        document.getElementById(i).src=img3;
+    }
     return <Box mt={30} className='false_lashesh' >
         <Box ml={30} mb={20}><span style={{color:"#ae867a",fontSize:"20px"}}>Home </span>{`>`}<span style={{color:"#58595b",fontSize:"20px"}}>Unisyn False Lashes</span></Box>
         <Box w="96%"  m="auto"><Image w="100%" 
@@ -174,12 +179,12 @@ const FalseLashesh = () => {
         <Heading as="h1" fontWeight="700" fontSize="2em" >Unisyn False Lashes</Heading>
         <Text color="#58595b">Discover Unisyn™ lashes, the world's first true premium synthetic false eyelashes, made with a blend of ultra-fine synthetic fibres for an ultra-natural look.</Text>
         </Box>
-        <Grid gridTemplateColumns='repeat(4,1fr)' gap={20}>
+        <Grid w="96%" m="auto" gridTemplateColumns='repeat(4,1fr)' gap={20}>
         {FalseData.map((ele,i)=>{
 
-            return <GridItem textAlign="center" key={i}>
+            return <GridItem textAlign="left" key={i}>
                 <Box pos="relative" textAlign="center">
-                <Image boxSize='300px' src={ele.img1} />
+                <Image id={i} onMouseLeave={()=>handleChange(ele.img1,i)} onMouseEnter={()=>handleChange(ele.img3,i)} boxSize='300px' w="100%"src={ele.img1}/>
                 <Box pos="absolute" bottom="1%" left="0" height="fit-content" bgColor="#ae867a"   w="30%" m="auto" color="white" p="3px">save {ele.discount} %</Box>
                 </Box>
                 <Text color="#58595b">{ele.title}</Text>
