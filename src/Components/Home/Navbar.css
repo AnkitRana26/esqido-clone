@@ -60,18 +60,6 @@
 .navCont{
     /* border: 1px solid red; */
 }
-
-/* and (max-width: 992px) */
-/* @media screen and (min-width:1030)  {
-    #checkingDetails {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-    }
-    #checkHead{
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-  } */
   @media screen and (min-width:500px) and (max-width: 1030px) {
     #mid {
       display: none;
