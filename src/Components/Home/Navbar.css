@@ -1,3 +1,9 @@
+.navbar{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+}
 #top{
     background-color: black;
     color: white;
@@ -22,6 +28,11 @@
     display: flex;
     justify-content: space-around;
     padding: 20px;
+    background-color: white;
+    /* position: fixed;
+    z-index: 50;
+    top: 0;
+    width: 100%; */
 }
 #bottom>div:nth-child(2){
     display: flex;
@@ -46,3 +57,28 @@
     width: 8%;
     margin-right: -12%;
 }
+.navCont{
+    /* border: 1px solid red; */
+}
+
+/* and (max-width: 992px) */
+/* @media screen and (min-width:1030)  {
+    #checkingDetails {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    #checkHead{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  } */
+  @media screen and (min-width:500px) and (max-width: 1030px) {
+    #mid {
+      display: none;
+      /* grid-template-columns: repeat(1, 1fr); */
+    }
+    .navCont{
+      display: none;
+      /* grid-template-columns: repeat(2, 1fr); */
+    }
+  }

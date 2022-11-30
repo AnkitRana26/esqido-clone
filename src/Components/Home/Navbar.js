@@ -4,7 +4,7 @@ import './Navbar.css';
 function Navbar(){
 
     return (
-        <div>
+        <div className="navbar">
             <div id="top">
                 <p>Holiday Offer: Enjoy 25% OFF 2-PACK Eyeliner</p>
             </div>
@@ -20,7 +20,7 @@ function Navbar(){
             </div>
             <div id="bottom">
                 <div><img src="https://cdn.shopify.com/s/files/1/0250/1519/files/esq-logo-110419_236x65_ca22d1fc-ae73-40f7-a98a-081cfc10b4f2_147x41.png?v=1634502882"/></div>
-                <div>
+                <div className="navCont">
                     <p>SHOP</p>
                     <p>OUR STORY</p>
                     <p>REVIEWS</p>

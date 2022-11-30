@@ -5,6 +5,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {details} from './data';
 import Navbar from "../../Components/Home/Navbar";
+import Footer from "../../Components/Home/Footer";
+import { style } from "@mui/system";
 
 function Home(){
 
@@ -129,6 +131,7 @@ function Home(){
                 <h3>Shop the Gel Pencil Eyeliner</h3>
                 <img src="https://cdn.shopify.com/s/files/1/0250/1519/t/14/assets/esqfranlinerblackcompressed-1635290028363.jpg?v=1635290029"/>
             </div>
+            <Footer/>
         </div>
     )
 }
