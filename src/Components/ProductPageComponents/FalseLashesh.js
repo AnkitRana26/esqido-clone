@@ -185,7 +185,7 @@ const FalseLashesh = () => {
             return <GridItem textAlign="left" key={i}>
                 <Box pos="relative" textAlign="center">
                 <Image id={i} onMouseLeave={()=>handleChange(ele.img1,i)} onMouseEnter={()=>handleChange(ele.img3,i)} boxSize='300px' w="100%"src={ele.img1}/>
-                <Box pos="absolute" bottom="1%" left="0" height="fit-content" bgColor="#ae867a"   w="30%" m="auto" color="white" p="3px">save {ele.discount} %</Box>
+                <Box pos="absolute" bottom="1%" left="0" height="fit-content" bgColor="#ae867a"   w="30%" m="auto" color="white" p="3px">save {ele.discount}%</Box>
                 </Box>
                 <Text color="#58595b">{ele.title}</Text>
                 <Text color="#ae867a" textDecoration="line-through">${ele.mrp}USD</Text>

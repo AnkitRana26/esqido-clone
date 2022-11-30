@@ -13,6 +13,7 @@ let ProductData=[
         price:12,
         reviews:990,
         points:280,
+        discount:20,
     },
     {
         img1:"//cdn.shopify.com/s/files/1/0250/1519/products/esq-product-page-applicator-1_384x384.jpg?v=1644364787",
@@ -24,6 +25,7 @@ let ProductData=[
         price:14,
         reviews:6,
         points:140,
+        discount:33,
 
     },
     {
@@ -36,6 +38,7 @@ let ProductData=[
         price:28,
         reviews:5,
         points:280,
+        discount:23,
     },
     {
         img1:"//cdn.shopify.com/s/files/1/0250/1519/products/esq-comp-mu-remover-product-page-white-1_384x384.jpg?v=1641598386",
@@ -47,6 +50,7 @@ let ProductData=[
         price:14.98,
         reviews:21,
         points:149,
+        discount:10,
     },
     {
         img1:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-liner-product-page-092822_2336b2a2-1a54-45d7-abe7-d907428b7a1c_720x721.jpg?v=1664497756",
@@ -110,9 +114,9 @@ const Accessories=()=>{
                     //  <CardBody key={i}>
                     
                         <GridItem key={i}>
-                            <Box pos="relative">
+                            <Box pos="relative" textAlign="center">
                             <Image id={i} onMouseLeave={()=>handleImage(ele.img1,i)} onMouseEnter={()=>handleImage(ele.img3,i)} boxSize='300px' w="100%"src={ele.img1} />
-                            <Box pos="absolute" bottom="1%" left="0" height="fit-content" bgColor="#ae867a"   w="30%" m="auto" color="white" p="3px">save {ele.discount} %</Box>
+                            <Box pos="absolute" bottom="1%" left="0" height="fit-content" bgColor="#ae867a"   w="30%" m="auto" color="white" p="3px">save {ele.discount}%</Box>
                             </Box>
                             <Text>{ele.title}</Text>
                             <Text>${ele.price} USD</Text>
