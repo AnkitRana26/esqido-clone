@@ -178,9 +178,9 @@ const FalseLashesh = () => {
         {FalseData.map((ele,i)=>{
 
             return <GridItem textAlign="center" key={i}>
-                <Box textAlign="center" >
+                <Box pos="relative" textAlign="center">
                 <Image boxSize='300px' src={ele.img1} />
-                <Box bgColor="#ae867a" left="0"  w="30%" m="auto" top="0" color="white" p="3px">save {ele.discount} %</Box>
+                <Box pos="absolute" bottom="1%" left="0" height="fit-content" bgColor="#ae867a"   w="30%" m="auto" color="white" p="3px">save {ele.discount} %</Box>
                 </Box>
                 <Text color="#58595b">{ele.title}</Text>
                 <Text color="#ae867a" textDecoration="line-through">${ele.mrp}USD</Text>
