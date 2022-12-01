@@ -1,0 +1,25 @@
+/* body{
+    background-color: #EEEAE7;
+} */
+#product-description-box{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 1%;
+    
+    margin: auto;
+    margin-top: 2%;
+    
+}
+
+.mainDiv{
+    width: 85%;
+    margin: auto;
+}
+
+
+@media screen and (max-width:1220px) {
+    #product-description-box{
+        grid-template-columns: repeat(1,1fr);
+    }
+}

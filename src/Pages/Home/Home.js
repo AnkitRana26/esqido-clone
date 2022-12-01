@@ -50,7 +50,7 @@ function Home(){
 
     return (
         <div id="check">
-            <Navbar/>
+            {/* <Navbar/> */}
             <div id="first"> <img src="https://cdn.shopify.com/s/files/1/0250/1519/t/14/assets/esqholiday111522desktop-1668553327744.jpg?v=1668553329" /></div>
             <div className="tags">
                 <div>
@@ -136,7 +136,7 @@ function Home(){
                 <h3>Shop the Gel Pencil Eyeliner</h3>
                 <img src="https://cdn.shopify.com/s/files/1/0250/1519/t/14/assets/esqfranlinerblackcompressed-1635290028363.jpg?v=1635290029"/>
             </div>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     )
 }
