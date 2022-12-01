@@ -34,10 +34,10 @@ function Discription({prodData}) {
 
   }
   const addToCart=async(propdata)=>{
-    let res=await fetch(`https://esqido-data.onrender.com/cart/${propdata.id}`)
+    let res=await fetch(`https://esqido-data.onrender.com/cart?uniqueId=${propdata.uniqueId}`)
     let data = await res.json()
     console.log(data);
-    if(data.id){
+    if(data.length>0){
       setAlert(true);
       setTimeout(() => {
         setAlert(false);
@@ -203,16 +203,16 @@ function Discription({prodData}) {
         </div>
       </Box>
       
-      {showSucess?<Alert severity="success" sx={{padding:"1%"}}>Added To Cart</Alert>:""}
+      
       {showAlert?
-        <Container severity="error" sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"red",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"absolute",top:"5%",left:"45%" ,borderRadius:"8px" }}>
+        <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"red",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"3%",left:"45%" ,borderRadius:"8px" }}>
           <MdError fontSize={"1.2rem"}/> <Text>
             
             Already in Cart!
             </Text>
         </Container>:""}
         {showSucess?
-        <Container severity="error" sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"green",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"absolute",top:"5%",left:"45%" ,borderRadius:"8px" }}>
+        <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"green",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"3%",left:"45%" ,borderRadius:"8px" }}>
           <AiFillCheckCircle fontSize={"1.2rem"}/> <Text>
             
             Added To Cart
