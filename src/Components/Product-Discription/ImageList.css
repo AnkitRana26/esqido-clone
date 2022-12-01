@@ -1,0 +1,7 @@
+#image-list{
+    display: grid;
+    gap: 2%;
+    width: 90%;
+    margin: auto;
+    margin-top: 1%;
+}
