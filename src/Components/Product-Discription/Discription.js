@@ -16,8 +16,10 @@ function Discription({prodData}) {
   const [showAlert,setAlert] = useState(false);
   const [showSucess,setSucess] = useState(false);
   const [cartLoading,setCartLoading] =useState(false);
+  const [qty,setQty] = useState(1);
   const postData =async(propdata)=>{
       let newData={...propdata};
+      newData.qty = qty;
       delete newData.id;
       let res =await fetch(`https://esqido-data.onrender.com/cart`,{
         method:"POST",
@@ -61,6 +63,10 @@ function Discription({prodData}) {
     }
   }
 
+  function qtyChange(e){
+    setQty(e.target.value);
+  }
+
 
 
 
@@ -87,6 +93,7 @@ function Discription({prodData}) {
         <ColorComponent />
         <Box display={"flex"} gap="1%">
           <select
+          onChange={(e)=>{qtyChange(e)}}
             placeholder="Select option"
             style={{ width: "25%", height: "50px", fontSize: "1rem" }}
           >
