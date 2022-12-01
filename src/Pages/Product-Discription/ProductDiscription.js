@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button } from "@chakra-ui/react";
+// import { Box, Button } from "@chakra-ui/react";
 import Discription from "../../Components/Product-Discription/Discription";
 import ImageBox from "../../Components/Product-Discription/ImageBox";
 import './ProductDiscription.css'
