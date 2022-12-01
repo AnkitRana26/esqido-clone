@@ -69,7 +69,51 @@
 /* #navCont{
     border: 1px solid red;
 } */
-  @media screen and (min-width:500px) and (max-width: 1030px) {
+
+#navCont ul{
+    list-style: none;
+}
+#navCont ul li{
+    position: relative;
+    float: left;
+}
+    #navCont ul li a{
+        text-decoration: none;
+        font-size: 14px;
+        padding: 9px;
+        color: black;
+    }
+    #navCont ul li a:hover{
+        color: brown;
+    }
+    #navCont ul li ul{
+        position: absolute;
+        margin-top: 38px;
+        left: -30px;
+        width: 200px;
+        background: white;
+        display: none;
+        padding-bottom: 10px;
+    }
+    #navCont ul li ul li{
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    #navCont ul li ul li a{
+        font-size: 16px;
+        text-align: start;
+    }
+    #navCont ul li ul li ul{
+        left: 150px;
+        top: 0;
+    }
+    #navCont ul li:focus-within > ul,#navCont ul li:hover > ul {
+        /* top: 50px; */
+        display:initial;
+        /* border: 1px solid red; */
+    }
+
+  @media screen and (max-width: 1030px) {
     #mid {
       display: none;
       /* grid-template-columns: repeat(1, 1fr); */

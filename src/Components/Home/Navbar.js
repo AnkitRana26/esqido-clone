@@ -1,15 +1,15 @@
 import React from "react";
 import { useRef } from "react";
 import './Navbar.css';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {useState} from "react";
+// import {FiAlignRight, FixCircle, FixChevronDown} from "react-icons";
+import {NavLink, Link} from 'react-router-dom';
 
 
 function Navbar(){
 
-    let refer = useRef()
-    setTimeout(() => {
-        console.log(refer);
-    }, 5000);
-    
+
 
     return (
         <div className="navbar">
@@ -26,13 +26,23 @@ function Navbar(){
                 </div>
                 
             </div>
-            <div id="bottom" ref={refer}>
+            <div id="bottom">
                 <div><img src="https://cdn.shopify.com/s/files/1/0250/1519/files/esq-logo-110419_236x65_ca22d1fc-ae73-40f7-a98a-081cfc10b4f2_147x41.png?v=1634502882"/></div>
                 <div id="navCont">
-                    <p>SHOP</p>
-                    <p>OUR STORY</p>
-                    <p>REVIEWS</p>
-                    <p>REWARDS</p>
+                    <ul>
+                        <li><a href="#">SHOP</a>
+                            <ul>
+                                <li><a href="#">Sumdge Free Eyeliner</a></li>
+                                <li><a href="#">Companion Lash Glue</a></li>
+                                <li><a href="#">False Lashes</a></li>
+                                <li><a href="#">Accessories</a></li>
+                            </ul>
+                        
+                        </li>
+                        <li><a href="#">OUR STORY</a></li>
+                        <li><a href="#">REVIEWS</a></li>
+                        <li><a href="#">REWARDS</a></li>
+                    </ul>
                 </div>
                 <div>
                     <svg class="icon-search " aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="21" height="24" viewBox="0 0 21 24" fill="none">          <title>Search icon</title>        <path d="M19.5 21.5L13.6155 15.1628" stroke="currentColor" stroke-width="1.75"></path>      <circle cx="9.5" cy="9.5" r="7" stroke="currentColor" stroke-width="1.75"></circle>    </svg>
