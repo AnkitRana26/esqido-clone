@@ -32,10 +32,10 @@ function Navbar(){
                     <ul>
                         <li><a href="#">SHOP</a>
                             <ul>
-                                <li><a href="#">Sumdge Free Eyeliner</a></li>
-                                <li><a href="#">Companion Lash Glue</a></li>
-                                <li><a href="#">False Lashes</a></li>
-                                <li><a href="#">Accessories</a></li>
+                                <li><Link to="#">Sumdge Free Eyeliner</Link></li>
+                                <li><Link to="#">Companion Lash Glue</Link></li>
+                                <li><Link to="/falselashes">False Lashes</Link></li>
+                                <li><Link to="accessories">Accessories</Link></li>
                             </ul>
                         
                         </li>

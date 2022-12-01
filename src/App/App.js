@@ -3,12 +3,16 @@ import './App.css';
 import Cart from '../Pages/Cart/Cart';
 import Address from '../Pages/Address/Address';
 import Home from '../Pages/Home/Home';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
               {/* <Address/> */}
-              <Home/>
+              <Routes>
+                <Route path='/' element={<Home/>}/>
+              
+              </Routes>
     </div>
   );
 }
