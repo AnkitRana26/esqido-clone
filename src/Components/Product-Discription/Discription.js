@@ -10,11 +10,12 @@ import Ratings from "./rating/Ratings";
 import "./Discription.css";
 import { useEffect, useState } from "react";
 import {useParams} from 'react-router-dom'
-import { Alert, Container, Snackbar } from "@mui/material";
+import { Alert, CircularProgress, Container, Snackbar } from "@mui/material";
 
 function Discription({prodData}) {
   const [showAlert,setAlert] = useState(false);
   const [showSucess,setSucess] = useState(false);
+  const [cartLoading,setCartLoading] =useState(false);
   const postData =async(propdata)=>{
       let newData={...propdata};
       delete newData.id;
@@ -28,23 +29,35 @@ function Discription({prodData}) {
       let data = await res.json();
       console.log(data);
       setSucess(true);
+      setCartLoading(false);
       setTimeout(() => {
+        
         setSucess(false);
+        
       }, 2000);
 
   }
   const addToCart=async(propdata)=>{
+    setCartLoading(true);
+    
     let res=await fetch(`https://esqido-data.onrender.com/cart?uniqueId=${propdata.uniqueId}`)
     let data = await res.json()
     console.log(data);
     if(data.length>0){
       setAlert(true);
+     
+      setCartLoading(false);
+
       setTimeout(() => {
+        
         setAlert(false);
+
       }, 2000);
     }
     else{
       postData(propdata);
+      
+
     }
   }
 
@@ -156,7 +169,8 @@ function Discription({prodData}) {
             w={"70%"}
             onClick={(()=>addToCart(prodData))}
           >
-            ADD TO CART
+            {cartLoading?<CircularProgress color="inherit" />:"ADD TO CART"}
+            
           </Button>
         </Box>
         <div className="iconBox">
