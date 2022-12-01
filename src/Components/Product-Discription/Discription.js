@@ -2,6 +2,7 @@ import { StarIcon } from "@chakra-ui/icons";
 import { Box, Button, Select } from "@chakra-ui/react";
 import { ColorComponent } from "./colorComponent/ColorComponent";
 import {BiGift} from 'react-icons/bi';
+import Ratings from "./rating/Ratings";
 import "./Discription.css";
 
 function Discription() {
@@ -15,10 +16,11 @@ function Discription() {
       <h1>{data.title}</h1>
       <Box>
         <Box marginTop={"-20px"} display="flex" alignItems="center">
-          <StarIcon color={'#C2A284'} />
+          {/* <StarIcon color={'#C2A284'} />
           <StarIcon color={'#C2A284'}/>
           <StarIcon color={'#C2A284'}/>
-          <StarIcon color={'#C2A284'}/>
+          <StarIcon color={'#C2A284'}/> */}
+          <Ratings data={4.5}/>
           <div style={{ marginLeft: "8px",fontWeight:'600',display:"flex" , justifyContent:"space-between",width:'100%' }}><p>500+ Reviews</p><p style={{display:"flex",alignItems:"center"}}><BiGift color="#C2A284"/>&nbsp; 270 Points</p></div>
         </Box>
         <h2 className="price">

@@ -5,8 +5,14 @@ import ImageBox from "../../Components/Product-Discription/ImageBox";
 import './ProductDiscription.css'
 import { Reviews } from "../../Components/Product-Discription/reviews/Reviews";
 import { AcordianDiscription } from "../../Components/Product-Discription/acordianDiscription/AccordianDiscription";
+import ReviewForm from "../../Components/Product-Discription/ReviewForm/ReviewForm";
+
+
 function ProductDiscription() {
   return(
+    
+      
+    
     <div className="mainDiv">
 
     
@@ -16,8 +22,10 @@ function ProductDiscription() {
         
   </div>
         <AcordianDiscription/>
+        <ReviewForm/>
         <Reviews/>
   </div>
+  
   ) 
 }
 export default ProductDiscription;

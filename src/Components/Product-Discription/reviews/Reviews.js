@@ -1,6 +1,8 @@
 import React from "react";
 import { StarIcon } from "@chakra-ui/icons";
 import './Reviews.css'
+import Ratings from '../rating/Ratings'
+
 
 export const Reviews = () => {
   return (
@@ -21,11 +23,7 @@ export const Reviews = () => {
             
            
             <div>
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
+            <Ratings data = {5}/>
             </div>
             <p>
               The Best This is the best eyelash glue I have tried, and I have tried
@@ -44,11 +42,7 @@ export const Reviews = () => {
             
            
             <div>
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
+            <Ratings data = {4.5}/>
             </div>
             <p>
             Excellent
@@ -67,11 +61,7 @@ Is very comfortable
             
            
             <div>
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
+            <Ratings data = {5}/>
             </div>
             <p>
             Companion bag
@@ -90,11 +80,7 @@ It is nice & light & roomy.
             
            
             <div>
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
+              <Ratings data = {4.5}/>
             </div>
             <p>
             Love it
@@ -113,11 +99,7 @@ Love the Companion Makeup Bag, everything fits in perfectly but the colour is a 
             
            
             <div>
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
+            <Ratings data = {5}/>
             </div>
             <p>
               The Best This is the best eyelash glue I have tried, and I have tried
@@ -136,11 +118,7 @@ Love the Companion Makeup Bag, everything fits in perfectly but the colour is a 
             
            
             <div>
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
-              <StarIcon color={"#C2A284"} />
+            <Ratings data = {4}/>
             </div>
             <p>
             Perfect, as usual
