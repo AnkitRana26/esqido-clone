@@ -1,0 +1,51 @@
+.colors{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    /* border: 2px solid black; */
+    margin: auto;
+    
+}
+.colorBox{
+    display: flex;
+    height: 85px;
+    gap: 2%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+
+.black{
+    background-color: #B6B1B2;
+}
+
+.blue{
+background-color: rgb(2, 99, 216);
+}
+
+.red{
+background-color: rgb(251, 70, 70);
+}
+
+.green{
+    background-color: green;
+}
+
+.yellow{
+    background-color: rgb(219, 219, 5);
+}
+
+.colorBox p{
+    font-size: small;
+    color: gray;
+}
+
+.colorSelected{
+    width: 47px;
+    height: 47px;
+    border: 2px solid red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px gray;
+}
