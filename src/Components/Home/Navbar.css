@@ -1,0 +1,128 @@
+
+.navbar{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%; 
+    /* position: relative; */
+    
+}
+#top{
+    background-color: black;
+    color: white;
+    padding: 1px;
+    text-align: center;
+}
+#mid{
+    /* height: 40px; */
+    background-color: #F5F1F1;
+    display: flex;
+    justify-content:flex-end;
+    
+}
+#mid>div{
+    width: 35%;
+    padding-right: 40px;
+    font-size: 14px;
+    /* height: 40px; */
+    display: flex;
+    justify-content: space-around;
+    
+}
+#bottom{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: white;
+    /* position: sticky; */
+    /* top: 0;
+    position: fixed;
+    width: 100%; */
+    /* position: fixed;
+    z-index: 50;
+    top: 0;
+    width: 100%; */
+}
+#bottom>div:nth-child(2){
+    display: flex;
+    justify-content: space-between;
+    /* background-color: aqua; */
+    width: 24%;
+    font-size: 12px;
+    font-weight: 600;
+}
+#bottom>div:first-child{
+    /* border: 2px solid red; */
+    margin-left: -12%;
+    width: 8%;
+}
+#bottom>div:first-child>img{
+    width: 100%; 
+}
+#bottom>div:nth-child(3){
+    display: flex;
+    justify-content: space-between;
+    /* background-color: aqua; */
+    width: 8%;
+    margin-right: -12%;
+}
+/* #navCont{
+    border: 1px solid red;
+} */
+
+#navCont ul{
+    list-style: none;
+}
+#navCont ul li{
+    position: relative;
+    float: left;
+}
+    #navCont ul li a{
+        text-decoration: none;
+        font-size: 14px;
+        padding: 9px;
+        color: black;
+    }
+    #navCont ul li a:hover{
+        color: brown;
+    }
+    #navCont ul li ul{
+        position: absolute;
+        margin-top: 38px;
+        left: -30px;
+        width: 200px;
+        background: white;
+        display: none;
+        padding-bottom: 10px;
+    }
+    #navCont ul li ul li{
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    #navCont ul li ul li a{
+        font-size: 16px;
+        text-align: start;
+    }
+    #navCont ul li ul li ul{
+        left: 150px;
+        top: 0;
+    }
+    #navCont ul li:focus-within > ul,#navCont ul li:hover > ul {
+        /* top: 50px; */
+        display:initial;
+        /* border: 1px solid red; */
+    }
+
+  @media screen and (max-width: 1030px) {
+    #mid {
+      display: none;
+      /* grid-template-columns: repeat(1, 1fr); */
+    }
+    #bottom>div:nth-child(3)>svg:nth-child(1),svg:nth-child(2){
+        display: none;
+    }
+    #navCont>*{
+      display: none;
+      /* grid-template-columns: repeat(2, 1fr); */
+    }
+  }

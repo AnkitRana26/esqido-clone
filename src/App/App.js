@@ -1,13 +1,14 @@
 // import logo from './logo.svg';
 import './App.css';
-// import Cart from '../Pages/Cart/Cart';
-import Accessories from "../Components/ProductPageComponents/Accessories"
+import Cart from '../Pages/Cart/Cart';
+import Address from '../Pages/Address/Address';
+import Home from '../Pages/Home/Home';
 
 function App() {
   return (
     <div className="App">
-              {/* <Cart/> */}
-              <Accessories />
+              {/* <Address/> */}
+              <Home/>
     </div>
   );
 }
