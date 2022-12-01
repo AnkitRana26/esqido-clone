@@ -91,7 +91,7 @@ const Accessories=()=>{
    }
 
    const handleImage=(img3,i)=>{
-    console.log(1);
+    
     document.getElementById(i).src=img3;
 }
 
