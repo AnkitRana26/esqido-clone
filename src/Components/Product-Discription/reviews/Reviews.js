@@ -1,5 +1,5 @@
 import React from "react";
-import { StarIcon } from "@chakra-ui/icons";
+// import { StarIcon } from "@chakra-ui/icons";
 import './Reviews.css'
 import Ratings from '../rating/Ratings'
 

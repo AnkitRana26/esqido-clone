@@ -1,4 +1,4 @@
-import { StarIcon } from "@chakra-ui/icons";
+// import { StarIcon } from "@chakra-ui/icons";
 import { Box, Button, Select } from "@chakra-ui/react";
 import { ColorComponent } from "./colorComponent/ColorComponent";
 import {BiGift} from 'react-icons/bi';
