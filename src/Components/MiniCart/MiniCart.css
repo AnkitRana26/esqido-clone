@@ -1,0 +1,19 @@
+
+
+
+/* width */
+.cartDiv::-webkit-scrollbar {
+    width: 5px;
+}
+  
+  /* Track */
+.cartDiv::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px grey;
+    /* border-radius: 10px; */
+}
+  
+  /* Handle */
+.cartDiv::-webkit-scrollbar-thumb {
+    background: #1b2120;
+    /* border-radius: 10px; */
+}
