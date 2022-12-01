@@ -43,7 +43,7 @@ const Payment = () => {
   return (
     <Box
       backgroundColor="white"
-      padding="0% 13%"
+      padding="0% 8%"
       borderRight="3px solid #e4e4e4"
     >
       <Image

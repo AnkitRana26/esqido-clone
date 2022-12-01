@@ -100,8 +100,8 @@ const totalPrice =()=>{
 
 
   return (
-    <Box position={props.position} top="1%" p="15px"  backgroundColor="" margin="auto"  >
-        <Container p="1% 0%"  mb="1%" display="grid"  alignItems="center"  justifyContent="center" bg="#1b2120"  >
+    <Box position={props.position}  top="0%" p="15px"  backgroundColor="" margin="auto"  >
+    <Container p="1% 0%"  mb="1%" display="grid"  alignItems="center"  justifyContent="center" bg="#1b2120"  >
         
 
         <Box  backgroundColor="transparent" textAlign="left" color="white"    gap="2%" marginBottom="1%"  p="0% 5%" fontSize={isTablet?"4vw":"1.5rem"} fontWeight="600" w="100%"  >Mini Cart <BsFillCartCheckFill/> </Box>
