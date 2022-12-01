@@ -3,7 +3,7 @@ import React,{useEffect, useState}from 'react';
 import { Box ,Image,Grid ,Heading ,Text,GridItem, Button, border} from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { Skeleton } from '@mui/material/Skeleton';
-
+import "./FalseItem.css"
 
 
 // const FalseData=[
@@ -172,10 +172,25 @@ const FalseLashesh = () => {
         fetch("https://esqido-data.onrender.com/products").then(res=>res.json()).then((data)=>setData(data));
     }
 
+
+    const handleCart=(e,ele)=>{
+        e.preventDefault();
+        console.log(ele);
+        let newObj={...ele};
+        delete newObj.id;
+        fetch("https://esqido-data.onrender.com/cart",{
+            method:"POST",
+            body:JSON.stringify(newObj),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        }).then(res=>res.json()).then((data)=>{
+            console.log(data);
+        })
+        
+    }
     useEffect(() => {
-        setInterval(()=>{
-            getData();
-        },1000)
+        getData();
     }, [])
 
     const handleChange=(img3,i)=>{
@@ -190,23 +205,23 @@ const FalseLashesh = () => {
         <Heading as="h1" fontWeight="700" fontSize="2em" >Unisyn False Lashes</Heading>
         <Text color="#58595b">Discover Unisyn™ lashes, the world's first true premium synthetic false eyelashes, made with a blend of ultra-fine synthetic fibres for an ultra-natural look.</Text>
         </Box>
-        <Grid w="96%" m="auto" gridTemplateColumns='repeat(4,1fr)' gap={20}>
+        <Grid className='falseItem' w="96%" m="auto" gridTemplateColumns='repeat(4,1fr)' gap={20}>
         {displayData.map((ele)=>{
 
             return <GridItem textAlign="left" key={ele.id}>
                 <Link style={{textDecoration:"none",color:"#58595b"}} to={`/productdescription/${ele.id}`}>
                     <Box pos="relative" textAlign="center">
                     <Image id={ele.id} onMouseLeave={()=>handleChange(ele.img1,ele.id)} onMouseEnter={()=>handleChange(ele.img3,ele.id)} boxSize='300px' w="100%"src={ele.img1}/>
-                    <Box pos="absolute" bottom="1%" left="0" height="fit-content" bgColor="#ae867a"   w="30%" m="auto" color="white" p="3px">save {ele.discount}%</Box>
+                    <Box pos="absolute" bottom="1%" left="0" height="fit-content" bgColor="#ae867a"   w="30%" m="auto" color="white" p="3px" borderRadius="0 10px 0 0">save {ele.discount}%</Box>
                     </Box>
                     <Box>
                         <Box>
-                            <Text color="#58595b">{ele.title}</Text>
+                            <Text color="#58595b" noOfLines={1}>{ele.title}</Text>
                             <Text color="#ae867a" textDecoration="line-through">${ele.mrp}USD</Text>
                         </Box>
                         <Box display="flex" textAlign="center" alignItems="center">
                             <Text color="#1b2120">${ele.price} USD</Text>
-                            <Box w="50%" m="auto" mr="0"> <Button w="100%" fontSize="20px" p={5} style={{letterSpacing:"0.02em", color:"white",backgroundColor:"#ae867a",border:"none" ,borderRadius:"20px",cursor:"pointer"}}>Show more...</Button></Box>
+                            <Box className='add_to' w="50%" m="auto" mr="0"> <Button onClick={(e)=>handleCart(e,ele)} w="100%" fontSize="20px" p={5} style={{letterSpacing:"0.02em", color:"white",backgroundColor:"#ae867a",border:"none" ,borderRadius:"20px",cursor:"pointer"}}>Add to cart</Button></Box>
                         </Box>
                    </Box>
                 </Link>

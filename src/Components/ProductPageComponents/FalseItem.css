@@ -1,0 +1,12 @@
+
+
+
+
+@media screen and (max-width:700px) {
+    .falseItem{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .add_to{
+        width:70%;
+    }
+}
