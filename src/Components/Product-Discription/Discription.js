@@ -1,31 +1,68 @@
 // import { StarIcon } from "@chakra-ui/icons";
-import { Box, Button, Select } from "@chakra-ui/react";
+import { Box, Button, Select, Text } from "@chakra-ui/react";
 import { ColorComponent } from "./colorComponent/ColorComponent";
 import {BiGift} from 'react-icons/bi';
+import {MdError} from 'react-icons/md';
+import {AiFillCheckCircle} from 'react-icons/ai';
+
+
 import Ratings from "./rating/Ratings";
 import "./Discription.css";
+import { useEffect, useState } from "react";
+import {useParams} from 'react-router-dom'
+import { Alert, Container, Snackbar } from "@mui/material";
 
-function Discription() {
-  let data = {
-    title: "Reusable Makeup Rounds (5 rounds)",
-    rating: 4,
-    totalReviews: 21,
-  };
-  return (
+function Discription({prodData}) {
+  const [showAlert,setAlert] = useState(false);
+  const [showSucess,setSucess] = useState(false);
+  const postData =async(propdata)=>{
+      let newData={...propdata};
+      delete newData.id;
+      let res =await fetch(`https://esqido-data.onrender.com/cart`,{
+        method:"POST",
+        body:JSON.stringify(newData),
+        headers:{
+          "Content-Type":"application/json"
+        }
+      })
+      let data = await res.json();
+      console.log(data);
+      setSucess(true);
+      setTimeout(() => {
+        setSucess(false);
+      }, 2000);
+
+  }
+  const addToCart=async(propdata)=>{
+    let res=await fetch(`https://esqido-data.onrender.com/cart/${propdata.id}`)
+    let data = await res.json()
+    console.log(data);
+    if(data.id){
+      setAlert(true);
+      setTimeout(() => {
+        setAlert(false);
+      }, 2000);
+    }
+    else{
+      postData(propdata);
+    }
+  }
+
+
+
+
+
+  return  (
     <div id="discription-box">
-      <h1>{data.title}</h1>
+      <h1>{prodData.title}</h1>
       <Box>
         <Box marginTop={"-20px"} display="flex" alignItems="center">
-          {/* <StarIcon color={'#C2A284'} />
-          <StarIcon color={'#C2A284'}/>
-          <StarIcon color={'#C2A284'}/>
-          <StarIcon color={'#C2A284'}/> */}
           <Ratings data={4.5}/>
-          <div style={{ marginLeft: "8px",fontWeight:'600',display:"flex" , justifyContent:"space-between",width:'100%' }}><p>500+ Reviews</p><p style={{display:"flex",alignItems:"center"}}><BiGift color="#C2A284"/>&nbsp; 270 Points</p></div>
+          <div style={{ marginLeft: "8px",fontWeight:'600',display:"flex" , justifyContent:"space-between",width:'100%' }}><p>500+ Reviews</p><p style={{display:"flex",alignItems:"center"}}><BiGift color="#C2A284"/>&nbsp; {prodData.points} Points</p></div>
         </Box>
         <h2 className="price">
-          <span className="originalPrice">₹{(3000 * 110) / 100}</span>
-          &nbsp;&nbsp;<span className="currentPrice">₹{3000}</span>&nbsp;
+          <span className="originalPrice">${(prodData.price * 110) / 100}</span>
+          &nbsp;&nbsp;<span className="currentPrice">${prodData.price}</span>&nbsp;
           <span className="discount">10% OFF</span>
         </h2>
         <p>
@@ -117,6 +154,7 @@ function Discription() {
             bg={"green"}
             color={"white"}
             w={"70%"}
+            onClick={(()=>addToCart(prodData))}
           >
             ADD TO CART
           </Button>
@@ -164,6 +202,23 @@ function Discription() {
           </div>
         </div>
       </Box>
+      
+      {showSucess?<Alert severity="success" sx={{padding:"1%"}}>Added To Cart</Alert>:""}
+      {showAlert?
+        <Container severity="error" sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"red",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"absolute",top:"5%",left:"45%" ,borderRadius:"8px" }}>
+          <MdError fontSize={"1.2rem"}/> <Text>
+            
+            Already in Cart!
+            </Text>
+        </Container>:""}
+        {showSucess?
+        <Container severity="error" sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"green",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"absolute",top:"5%",left:"45%" ,borderRadius:"8px" }}>
+          <AiFillCheckCircle fontSize={"1.2rem"}/> <Text>
+            
+            Added To Cart
+            </Text>
+        </Container>:""}
+
     </div>
   );
 }
