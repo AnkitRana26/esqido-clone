@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Box ,Heading,Text,Grid,Image,GridItem,Select,Stack} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 
 let ProductData=[
-    {
+    {   id:1,
         img1:"//cdn.shopify.com/s/files/1/0250/1519/products/esqido-accessories-eyelash-companion-glue-open-bsamz-b_384x384.jpg?v=1662475132",
         img2:"https://cdn.shopify.com/s/files/1/0250/1519/products/esqido-accessories-eyelash-companion-glue_523x523.jpg?v=1662475132",
         img3:"https://cdn.shopify.com/s/files/1/0250/1519/products/esqido-eyelash-glue-companion-wbg-amz-precision_523x523.jpg?v=1662475132",
@@ -112,14 +113,16 @@ const Accessories=()=>{
             {ProductData.map((ele,i)=>{
                 return (
                     //  <CardBody key={i}>
-                    
+                        
                         <GridItem key={i}>
-                            <Box pos="relative" textAlign="center">
-                            <Image id={i} onMouseLeave={()=>handleImage(ele.img1,i)} onMouseEnter={()=>handleImage(ele.img3,i)} boxSize='300px' w="100%"src={ele.img1} />
-                            <Box pos="absolute" bottom="1%" left="0" height="fit-content" bgColor="#ae867a"   w="30%" m="auto" color="white" p="3px">save {ele.discount}%</Box>
-                            </Box>
-                            <Text>{ele.title}</Text>
-                            <Text>${ele.price} USD</Text>
+                            <Link style={{textDecoration:"none",color:"#58595b"}} to={`/productdescription/${ele.id}`}>
+                                <Box pos="relative" textAlign="center">
+                                <Image id={i} onMouseLeave={()=>handleImage(ele.img1,i)} onMouseEnter={()=>handleImage(ele.img3,i)} boxSize='300px' w="100%"src={ele.img1} />
+                                <Box pos="absolute" bottom="1%" left="0" height="fit-content" bgColor="#ae867a"   w="30%" m="auto" color="white" p="3px">save {ele.discount}%</Box>
+                                </Box>
+                                <Text>{ele.title}</Text>
+                                <Text>${ele.price} USD</Text>
+                            </Link>
                         </GridItem>
                         
                         // </CardBody>
