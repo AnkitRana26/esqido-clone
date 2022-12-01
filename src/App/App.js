@@ -1,15 +1,15 @@
 // import logo from './logo.svg';
 import './App.css';
 import Cart from '../Pages/Cart/Cart';
-import Create from '../Components/Loginsignup/Create';
-import Login from '../Components/Loginsignup/Login';
+import ProductDiscription from '../Pages/Product-Discription/ProductDiscription'
+import { RatingAndReviews } from '../Components/Product-Discription/RatingAndReviews/RatingAndReviews';
+
 function App() {
   return (
     <div className="App">
-              <Cart/>
-              
-              <Create/>
-              <Login/>
+              {/* <Cart/> */}
+              <ProductDiscription/>
+              {/* <RatingAndReviews/> */}
     </div>
   );
 }
