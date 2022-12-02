@@ -28,10 +28,10 @@ function Navsticky(){
                     <ul>
                         <li><a href="#">SHOP</a>
                             <ul>
-                                <li><Link to="#">Sumdge Free Eyeliner</Link></li>
-                                <li><Link to="#">Companion Lash Glue</Link></li>
+                                <li><Link to="/falselashes">Sumdge Free Eyeliner</Link></li>
+                                <li><Link to="/accessories">Companion Lash Glue</Link></li>
                                 <li><Link to="/falselashes">False Lashes</Link></li>
-                                <li><Link to="accessories">Accessories</Link></li>
+                                <li><Link to="/accessories">Accessories</Link></li>
                             </ul>
                         
                         </li>
