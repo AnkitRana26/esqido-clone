@@ -74,7 +74,7 @@ const MiniCart = ({cartData,getData,position}) => {
                   <Image h="80px" w="80px" margin={isTablet?"auto":""} src={ele.img1} />
                   <Box p="1%" w="100%" display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"62% 38%"}  alignItems="center"  justifyContent="space-between" >
                         <Box h="fit-content" textAlign={isTablet?"center":"left"} >
-                            <Text p="0" m="0" fontSize="0.8rem" fontWeight="600" color="black">{ele.title}</Text>
+                            <Text p="0" m="0" fontSize="0.8rem" fontWeight="600" color="black" noOfLines={1}>{ele.title}</Text>
                     
                             <Text p="0" margin="0" fontWeight="600" fontSize="0.7rem" color="#ae867a">Price:- ${ele.price}/Unit</Text>
                         </Box>
