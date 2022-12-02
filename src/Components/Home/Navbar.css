@@ -1,12 +1,4 @@
 
-.navbar{
-    /* position: fixed;
-    z-index: 1;
-    top: 0;
-    width: 100%;  */
-        
-    
-}
 #top{
     background-color: black;
     color: white;
@@ -14,7 +6,6 @@
     text-align: center;
 }
 #mid{
-    /* height: 40px; */
     background-color: #F5F1F1;
     display: flex;
     justify-content:flex-end;
@@ -24,7 +15,6 @@
     width: 35%;
     padding-right: 40px;
     font-size: 14px;
-    /* height: 40px; */
     display: flex;
     justify-content: space-around;
     
