@@ -1,0 +1,33 @@
+#bottom{
+    display: flex;
+    justify-content: space-around;
+    padding: 13px;
+    background-color: white;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    height: 40px;
+}
+#bottom>div:nth-child(2){
+    display: flex;
+    justify-content: space-between;
+    width: 24%;
+    font-size: 12px;
+    font-weight: 600;
+    /* border: 1px solid red; */
+}
+#bottom>div:first-child{
+    margin-left: -12%;
+    width: 8%;
+}
+#bottom>div:first-child>img{
+    width: 100%; 
+}
+#bottom>div:nth-child(3){
+    display: flex;
+    justify-content: space-between;
+    width: 8%;
+    margin-right: -9%;
+    /* border:  1px solid red; */
+}
