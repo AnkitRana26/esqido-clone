@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import './Search.css';
 
 
-function Search(){
+function Search(props){
 
     let nav = useNavigate();
     let [state, setState] = React.useState([]);
     let [cnt, setCnt] = React.useState(0);
+    let ref = useRef();
 
     function debounceEg(cb, delay) {
         let timerid;
@@ -18,13 +19,18 @@ function Search(){
           }, delay);
         };
     }
+
+
+    if(!props.bool ){
+        setState([]);
+    }
+
       async function getdata() {
         const item = document.getElementById("myInput").value;
         const url = `https://esqido-data.onrender.com/products?q=${item}&_page=1&_limit=5`;
         let data = await getdataApi(url);
         console.log(data);
             setState((state)=data);
-            // console.log("hhhhh", state);
       }
        
       async function getdataApi(url) {
@@ -37,9 +43,13 @@ function Search(){
         }
       }
 
+    //   ref.current.addEventListener("blur", ()=>{
+    //     props.fun(false);
+    //   });
+
      return (
         <div id="search">
-            <input onChange={debounceEg(getdata, 0)} id="myInput" placeholder="What are you looking for?"/>
+            <input ref={ref} onBlur={()=>{props.fun(false)}} onChange={debounceEg(getdata, 0)} id="myInput" placeholder="What are you looking for?"/>
             {state.map((ele, idx)=>(
                 // setCnt((cnt)=>cnt+1);
                     <div className="item" onClick={()=>{nav(`/productdecription/${ele.id}`)}}>
