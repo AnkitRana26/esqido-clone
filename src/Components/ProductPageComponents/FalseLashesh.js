@@ -143,13 +143,14 @@ const FalseLashesh = () => {
         document.getElementById(i).src=img3;
     }
     return <Box mt={30} className='false_lashesh' >
-        <Box ml={30} mb={20}><span style={{color:"#ae867a",fontSize:"20px"}}>Home </span>{`>`}<span style={{color:"#58595b",fontSize:"20px"}}>Unisyn False Lashes</span></Box>
-        <Box w="96%"  m="auto"><Image w="100%" 
-        
-        src="//cdn.shopify.com/s/files/1/0250/1519/collections/esq-unisyn-false-eyelashes-collection-banner_1350x507.jpg?v=1643666933" /></Box>
-        <Box ml={30}>
-        <Heading as="h1" fontWeight="700" fontSize="2em" >Unisyn False Lashes</Heading>
-        <Text color="#58595b">Discover Unisyn™ lashes, the world's first true premium synthetic false eyelashes, made with a blend of ultra-fine synthetic fibres for an ultra-natural look.</Text>
+        <Text color="#ae867a" w={"96%"} fontSize="1.2rem" fontWeight="medium">
+                Home &gt;
+                <span style={{ color: "black" }}> False Lashesh </span>
+            </Text>
+        <Box   m="auto"><Image w="100%" src="//cdn.shopify.com/s/files/1/0250/1519/collections/esq-unisyn-false-eyelashes-collection-banner_1350x507.jpg?v=1643666933" /></Box>
+        <Box >
+        <Heading as="h1" fontWeight="700" marginTop={"3%"}    fontSize="2em" color={"white"} width="fit-content" p={"1% 5% 1% 1%"} backgroundColor={"#ae867a"} >Unisyn False Lashes</Heading>
+        {/* <Text fontSize={"1.1rem"} color="#58595b">Discover Unisyn™ lashes, the world's first true premium synthetic false eyelashes, made with a blend of ultra-fine synthetic fibres for an ultra-natural look.</Text> */}
         </Box>
         <Box p={"1% 0%"} w="100%" m="auto" justifyContent="right" display="flex" gap={"8px"} >
                 
@@ -212,7 +213,7 @@ const FalseLashesh = () => {
                 <Link style={{textDecoration:"none",color:"#58595b"}} to={`/productdescription/${ele.id}`}>
                     <Box pos="relative" textAlign="center">
                     <Image id={ele.id} onMouseLeave={()=>handleChange(ele.img1,ele.id)} onMouseEnter={()=>handleChange(ele.img3,ele.id)} boxSize='300px' w="100%"src={ele.img1}/>
-                    <Box pos="absolute" bottom="1%" left="0" height="fit-content" bgColor="#ae867a"   w="30%" m="auto" color="white" p="3px" borderRadius="0 10px 0 0">save {ele.discount}%</Box>
+                    <Box pos="absolute" bottom="1%" left="0" height="fit-content" bgColor="#ae867a"   w="30%" m="auto" color="white" p="3px" borderRadius="0 10px 0 0">Save {ele.discount}%</Box>
                     </Box>
                     <Box>
                                     <Box>
