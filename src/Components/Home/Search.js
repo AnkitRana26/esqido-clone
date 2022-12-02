@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import './Search.css';
 
 
 function Search(){
 
+    let nav = useNavigate();
     let [state, setState] = React.useState([]);
     let [cnt, setCnt] = React.useState(0);
 
@@ -40,7 +42,7 @@ function Search(){
             <input onChange={debounceEg(getdata, 0)} id="myInput" placeholder="What are you looking for?"/>
             {state.map((ele, idx)=>(
                 // setCnt((cnt)=>cnt+1);
-                    <div className="item">
+                    <div className="item" onClick={()=>{nav(`/productdecription/${ele.id}`)}}>
                     <img src={ele.img1} alt={"j"} />
                     <p>{ele.title}</p>
                 </div>
