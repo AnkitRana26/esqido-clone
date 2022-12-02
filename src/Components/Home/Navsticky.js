@@ -1,52 +1,30 @@
 import React from "react";
-import { useRef } from "react";
-import './Navbar.css';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import {useState} from "react";
+import './Nav.css'
 import {NavLink, Link} from 'react-router-dom';
 import Search from "./Search";
-import Navsticky from "./Navsticky";
 
+function Navsticky(){
 
-function Navbar(){
-
-    let ref = useRef();
-    const [state, setState] = useState(false);
+    const [state, setState] = React.useState(false);
 
     const closeSearch = ()=>{
         if(state)
         setState(false);
     }
     const searchPro = ()=>{
+        // document.getElementById("bottom").display = none;
         setState(true);
 
     }
-    
-
 
     return (
-        <div className="navbar">
-            <div id="top">
-                <p>Holiday Offer: Enjoy 25% OFF 2-PACK Eyeliner</p>
-            </div>
-            <div id="mid" onClick={closeSearch}>
-                <div>
-                <p>Shipping</p>
-                <p>Return Policy</p>
-                <p>FAQ</p>
-                <p>Lash Guide</p>
-                <p>Contact Us</p>
-                </div>
-                
-            </div>
-            {/* <Navsticky/> */}
-            {/* <div id="bottom">
+        <div id="bottom">
                 <div>
                     <Link to="/">
                         <img  src="https://cdn.shopify.com/s/files/1/0250/1519/files/esq-logo-110419_236x65_ca22d1fc-ae73-40f7-a98a-081cfc10b4f2_147x41.png?v=1634502882"/>
                     </Link>
                 </div>
-                <div id="navCont">
+                <div id="navCont" onClick={closeSearch}>
                     <ul>
                         <li><a href="#">SHOP</a>
                             <ul>
@@ -72,9 +50,8 @@ function Navbar(){
                         <svg class="icon-bag " aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="19" height="24" viewBox="0 0 19 24" fill="none">          <title>Cart icon</title>        <path d="M1.75 6.75H17.25V21.75H1.75V6.75Z" stroke="currentColor" stroke-width="1.5"></path>      <path d="M13 10.5V5.5C13 2.83333 11.4444 1.5 9.5 1.5C7.55556 1.5 6 2.83333 6 5.5L6 10.5" stroke="currentColor" stroke-width="1.5"></path>    </svg>
                     </Link>
                 </div>
-            </div> */}
-        </div>
+            </div>
     )
 }
 
-export default Navbar;
+export default Navsticky;

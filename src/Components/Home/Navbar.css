@@ -1,10 +1,10 @@
 
 .navbar{
-    position: fixed;
+    /* position: fixed;
     z-index: 1;
     top: 0;
-    width: 100%; 
-    /* position: relative; */
+    width: 100%;  */
+        
     
 }
 #top{
@@ -29,30 +29,20 @@
     justify-content: space-around;
     
 }
-#bottom{
+/* #bottom{
     display: flex;
     justify-content: space-around;
     padding: 20px;
     background-color: white;
-    /* position: sticky; */
-    /* top: 0;
-    position: fixed;
-    width: 100%; */
-    /* position: fixed;
-    z-index: 50;
-    top: 0;
-    width: 100%; */
 }
 #bottom>div:nth-child(2){
     display: flex;
     justify-content: space-between;
-    /* background-color: aqua; */
     width: 24%;
     font-size: 12px;
     font-weight: 600;
 }
 #bottom>div:first-child{
-    /* border: 2px solid red; */
     margin-left: -12%;
     width: 8%;
 }
@@ -62,12 +52,8 @@
 #bottom>div:nth-child(3){
     display: flex;
     justify-content: space-between;
-    /* background-color: aqua; */
     width: 8%;
     margin-right: -12%;
-}
-/* #navCont{
-    border: 1px solid red;
 } */
 
 #navCont ul{
