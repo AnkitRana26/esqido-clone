@@ -9,93 +9,54 @@ import { AiOutlineShoppingCart,AiOutlineDollarCircle,AiFillDelete } from "react-
 import shopPay from "./shopPay.png"
 import payPal from "./payPal.png"
 import gPay from "./gPay.jpg"
+import { useNavigate } from 'react-router';
 
 
 
-
-const cartData=[
-  {
-      id:1,
-      img:`https://cdn.shopify.com/s/files/1/0250/1519/products/esq-product-makeup-bag-b_999x999.gif?v=1628635003`,
-      name:`Companion Makeup Bag`,
-      price:28,
-      qty:1
-  },
-  {
-      id:2,
-      img:`https://cdn.shopify.com/s/files/1/0250/1519/products/esq-comp-mu-remover-product-page-white-1_1101x1101.jpg?v=1641598386`,
-      name:`Reusable Makeup Rounds (5 rounds)`,
-      price:14.98,
-      qty:1
-  },
-  {
-    id:3,
-    img:`https://cdn.shopify.com/s/files/1/0250/1519/products/esq-product-makeup-bag-b_999x999.gif?v=1628635003`,
-    name:`Companion Makeup Bag`,
-    price:28,
-    qty:1
-},
-{
-    id:4,
-    img:`https://cdn.shopify.com/s/files/1/0250/1519/products/esq-comp-mu-remover-product-page-white-1_1101x1101.jpg?v=1641598386`,
-    name:`Reusable Makeup Rounds (5 rounds)`,
-    price:14.98,
-    qty:1
-}
-]
-
-
-const CartItem = () => {
+let tempCart =[0,0,0,0,0];
+const CartItem = ({cartData,getData}) => {
 
   // const [value,setValue] = useState('');
-  const [cart,setCart] = useState(cartData);
+  const [cart,setCart] = useState([]);
   const [isTablet] = useMediaQuery("(max-width: 900px)") 
   const [isLoading,setLoading] = useState(false);
+  let navigate = useNavigate()
   useEffect(()=>{
     setLoading(true);
     setTimeout(() => {
       setLoading(false)
-    }, 1000);
+    }, 100);
   },[])
 
 
-  const handleChange =(id,value)=>{
-      let newCart = [];
-
-      for(let i=0;i<cart.length;i++){
-
-        if(cart[i].id==id){
-          cart[i].qty=value;
-          
-        }
-        newCart.push(cart[i]);
-
+  const handleChange =async(ele,value)=>{
+    let newObj = {...ele};
+    delete newObj.id;
+    newObj.qty=value;
+    let res = await fetch(`https://esqido-data.onrender.com/cart/${ele.id}`,{
+      method:"PATCH",
+      body:JSON.stringify(newObj),
+      headers:{
+        "Content-Type":"application/json"
       }
-      setCart(prev=>newCart);
-      
-
-
+    });
+    let data = await res.json();
+    getData();
   }
 
-  const removeCart=(id)=>{
-
-    let newCart = [];
-
-      for(let i=0;i<cart.length;i++){
-
-        if(cart[i].id!=id){
-          newCart.push(cart[i]);
-        }
-
+  const removeCart=async(id)=>{
+    let res = await fetch(`https://esqido-data.onrender.com/cart/${id}`,{
+      method:"DELETE"
       }
-    setCart(prev=>newCart);
+    );
+    getData();
 
 
   }
 
   const totalPrice =()=>{
 
-    return cart.reduce((acc,ele)=>{
+    return cartData.reduce((acc,ele)=>{
         return acc+(ele.qty*ele.price)
     },0).toFixed(0)
 
@@ -118,9 +79,8 @@ const CartItem = () => {
       </Container>
         <Box p="2% 2%" display="grid" alignItems="center" fontSize="large" color="#58595B" fontWeight="semibold" border="1px solid rgba(0,0,0,.15)"   >
         {
-          cart.map(ele=>{
+          cartData.map(ele=>{
             return isLoading?<div style={{marginBottom:"1%",padding:"1%",display:"flex",justifyContent:"space-between",alignItems:"center" }} >
-              
               <Skeleton variant="rectangular" width={"120px"} height={"120px"}/>
               <Skeleton variant="rectangular" width={"300px"} height={"40px"}/>
               <div style={{display:"flex",gap:"10px",justifyContent:"space-between",alignItems:"center" }} >
@@ -130,10 +90,10 @@ const CartItem = () => {
               </div>
 
             </div> :<Box key={ele.id} p="1%" m="1%"  display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"25% 75%"}   gap="1%" borderBottom="1px solid rgba(0,0,0,.15)" >
-                    <Image h="120px" w="120px" margin={isTablet?"auto":""} src={ele.img} />
+                    <Image h="120px" w="120px" margin={isTablet?"auto":""} src={ele.img1} />
                     <Box p="1%" w="100%" display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"65% 35%"}  alignItems="center"  justifyContent="space-between" >
                           <Box h="fit-content" textAlign={isTablet?"center":"left"} >
-                              <Text p="0" m="0" fontWeight="600" color="black">{ele.name}</Text>
+                              <Text p="0" m="0" fontWeight="600" color="black">{ele.title}</Text>
                       
                               <Text p="0" margin="0" fontWeight="600" color="#ae867a">Price:- ${ele.price}/Unit</Text>
                           </Box>
@@ -148,7 +108,7 @@ const CartItem = () => {
                                                 value={ele.qty}
                                                 label="Qty"
                                                 
-                                                onChange={(e)=>{handleChange(ele.id,e.target.value)}}
+                                                onChange={(e)=>{handleChange(ele,e.target.value)}}
                                             >
                                               
                                               <MenuItem value={1}>1</MenuItem>
@@ -178,7 +138,7 @@ const CartItem = () => {
           <Text>${totalPrice()}</Text>
         </Box>
         <Text mt="8%" fontSize={isTablet?"2.5vw":"1.3vw"}>*Shipping & taxes calculated at checkout</Text>
-        <Button transition="all 0.2s linear;"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="1%"  height={isTablet?"50px":"70px"} border="none" w="100%" p="0" fontWeight="bold" fontSize={isTablet?"3vw":"1.7vw"}> <BsFillPatchCheckFill h="fit-content" /> <Text h="fit-content" >Checkout</Text></Button>
+        <Button transition="all 0.2s linear;"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="1%"  height={isTablet?"50px":"70px"} border="none" w="100%" p="0" fontWeight="bold" fontSize={isTablet?"3vw":"1.7vw"} onClick={()=>navigate('/address')} > <BsFillPatchCheckFill h="fit-content" /> <Text h="fit-content" >Checkout</Text></Button>
         <Box  display="flex" justifyContent="center" gap="1%" p="3% 0%">
           <Button border="none" bg="transparent" borderRadius="8px" > <Image borderRadius="8px" width="120px" height="55px" src={shopPay}/> </Button>
           <Button border="none" bg="transparent" borderRadius="8px" > <Image borderRadius="8px" width="120px" height="55px" src={payPal}/> </Button>

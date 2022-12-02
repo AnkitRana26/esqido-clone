@@ -1,0 +1,37 @@
+
+.false_lashesh,.accessories_comp{
+    width: 95%!important;
+    margin: 5% auto;
+    /* margin-bottom: ; */
+}
+
+.sortSelect{
+    outline: none;
+    border: none;
+    color: white;
+}
+.sort >option{
+    padding: 2% 3px;
+}
+
+.falseItem{
+    gap: 10px;
+}
+.falseItem >div{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+}
+
+.falseItem>div>a>div:last-child{
+    padding: 0px 10px 5px 10px ;
+}
+
+
+@media screen and (max-width:900px) {
+    .falseItem{
+        grid-template-columns: repeat(2,1fr)!important;
+    }
+    .add_to{
+        width:70%;
+    }
+}

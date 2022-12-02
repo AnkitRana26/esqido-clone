@@ -1,5 +1,5 @@
 import React from 'react'
-import { StarIcon } from '@chakra-ui/icons'
+// import { StarIcon } from '@chakra-ui/icons'
 import { Progress } from '@chakra-ui/react'
 
 export const RatingAndReviews = () => {

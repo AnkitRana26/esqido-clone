@@ -1,100 +1,160 @@
-import React, { useState } from "react";
-import { Box ,Heading,Text,Grid,Image,GridItem,Select,Stack} from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Box ,Heading,Text,Grid,Image,GridItem,Stack, Button} from "@chakra-ui/react";
+import { Link, useSearchParams } from "react-router-dom";
+import "./FalseItem.css"
+import { CircularProgress, FormControl, MenuItem, Skeleton } from "@mui/material";
+import {Select,InputLabel,Container} from "@mui/material";
+import Pagination from "../Pagination/Pagination";
+import {MdError} from 'react-icons/md';
+import {AiFillCheckCircle} from 'react-icons/ai';
 
 
-let ProductData=[
-    {   id:1,
-        img1:"//cdn.shopify.com/s/files/1/0250/1519/products/esqido-accessories-eyelash-companion-glue-open-bsamz-b_384x384.jpg?v=1662475132",
-        img2:"https://cdn.shopify.com/s/files/1/0250/1519/products/esqido-accessories-eyelash-companion-glue_523x523.jpg?v=1662475132",
-        img3:"https://cdn.shopify.com/s/files/1/0250/1519/products/esqido-eyelash-glue-companion-wbg-amz-precision_523x523.jpg?v=1662475132",
-        img4:"https://cdn.shopify.com/s/files/1/0250/1519/products/esqido-eyelash-glue-companion-wbg-amz-usp_523x523.jpg?v=1662475132",
-        img5:"https://cdn.shopify.com/s/files/1/0250/1519/products/esqido-eyelash-glue-companion-wbg-azm-2_523x523.jpg?v=1662475132",
-        title:"Companion Eyelash Glue",
-        price:12,
-        reviews:990,
-        points:280,
-        discount:20,
-    },
-    {
-        img1:"//cdn.shopify.com/s/files/1/0250/1519/products/esq-product-page-applicator-1_384x384.jpg?v=1644364787",
-        img2:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-product-page-applicator-4_523x523.jpg?v=1644364787",
-        img3:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-product-page-applicator-3_523x523.jpg?v=1644364787",
-        img4:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-product-page-applicator-2_523x523.jpg?v=1644364787",
-        img5:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-product-page-applicator-5_523x523.jpg?v=1644364787",
-        title:"Companion Lash Applicator",
-        price:14,
-        reviews:6,
-        points:140,
-        discount:33,
-
-    },
-    {
-        img1:"//cdn.shopify.com/s/files/1/0250/1519/products/esq-product-makeup-bag-b_384x384.gif?v=1628635003",
-        img2:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-product-makeup-bag-1_523x523.jpg?v=1628635013",
-        img3:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-product-makeup-bag-2_523x523.jpg?v=1628635013",
-        img4:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-product-makeup-bag-3_523x523.jpg?v=1628635014",
-        img5:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-product-makeup-bag-4_523x523.jpg?v=1628635014",
-        title:"Companion Makeup Bag",
-        price:28,
-        reviews:5,
-        points:280,
-        discount:23,
-    },
-    {
-        img1:"//cdn.shopify.com/s/files/1/0250/1519/products/esq-comp-mu-remover-product-page-white-1_384x384.jpg?v=1641598386",
-        img2:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-comp-mu-remover-product-page-blue-1_523x523.jpg?v=1641846419",
-        img3:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-comp-mu-remover-product-page-green-1_523x523.jpg?v=1641846419",
-        img4:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-comp-mu-remover-product-page-white-2_523x523.jpg?v=1641846419",
-        img5:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-comp-mu-remover-product-page-features_4112beac-2651-4556-85f0-5d8193881e02_523x523.jpg?v=1641920535",
-        title:"Reusable Makeup Rounds (5 rounds)",
-        price:14.98,
-        reviews:21,
-        points:149,
-        discount:10,
-    },
-    {
-        img1:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-liner-product-page-092822_2336b2a2-1a54-45d7-abe7-d907428b7a1c_720x721.jpg?v=1664497756",
-        img2:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-liner-4-colour-before-after_242x242.gif?v=1664497756",
-        img3:"https://cdn.shopify.com/s/files/1/0250/1519/products/esq-img-ad-060922-product-detail-4a_242x242.jpg?v=1664497756",
-
-        title:"Smudge-free Eyeliner",
-        mrp:18.00,
-        price:13.50,
-        discount:35,
-        reviews:6443,
-        points:270,
-    },
-    
-]
+let renderingData =[0,0,0,0,0,0,0,0];
 const Accessories=()=>{
     const [sort,setSort]=useState("");
+    const [displayData,setData]=useState([]);
+    const [isLoading, setLoading]=useState(true);
+    const [searchparam,setSearchParam] = useSearchParams({"_sort":"uniqueId","_order":"asc","_page":1,"_limit":12});
+    const [currentPage,setCurrentPage] = useState(1);
+    const [totalProducts,setTotalProducts] =useState(0);
+    const [showAlert,setAlert] = useState(false);
+    const [showSucess,setSucess] = useState(false);
+    const [cartLoading,setCartLoading] =useState({loading:false,ele:0});
+
+
+    const postData =async(propdata)=>{
+        let newData={...propdata};
+        delete newData.id;
+        newData.qty=1;
+        let res =await fetch(`https://esqido-data.onrender.com/cart`,{
+          method:"POST",
+          body:JSON.stringify(newData),
+          headers:{
+            "Content-Type":"application/json"
+          }
+        })
+        let data = await res.json();
+        console.log(data);
+        setSucess(true);
+        setCartLoading({loading:false,ele:0});
+        setTimeout(() => {
+          
+          setSucess(false);
+          
+        }, 2000);
+  
+    }
+
+    const addToCart=async(e,propdata)=>{
+        e.preventDefault();
+        setCartLoading({loading:true,ele:propdata.id});
+        
+        let res=await fetch(`https://esqido-data.onrender.com/cart?uniqueId=${propdata.uniqueId}`)
+        let data = await res.json()
+        console.log(data);
+        if(data.length>0){
+          setAlert(true);
+         
+          setCartLoading({loading:false,ele:0});
+    
+          setTimeout(() => {
+            
+            setAlert(false);
+    
+          }, 2000);
+        }
+        else{
+          postData(propdata);
+          
+    
+        }
+      }
+
+
+
+
+
+
+
+
+    console.log(searchparam.get("_sort"))
+    const sortChange=(event)=>{
+        let copy = new URLSearchParams(searchparam);
+        console.log(""+new URLSearchParams(searchparam))
+        copy.set("_order",event.target.value);
+        copy.set("_sort","price");
+        setSearchParam(copy);
+    }
+    const filterChange=(event)=>{
+        let copy = new URLSearchParams(searchparam);
+        console.log(""+new URLSearchParams(searchparam))
+        copy.set("category",event.target.value);
+        setSearchParam(copy);
+    }
+
+    const changePages =(value)=>{
+        let copy = new URLSearchParams(searchparam);
+        copy.set("_page",currentPage+value);
+        setSearchParam(copy);
+        setCurrentPage(prev=>prev+value);
+    }
+
+
+
+
+
+    const getData=()=>{
+        setLoading(true);
+        fetch("https://esqido-data.onrender.com/products?"+new URLSearchParams(searchparam)).then(res=>{
+            setTotalProducts(res.headers.get('X-Total-Count'));
+            return res.json();
+    }).then((data)=>{
+        setData(data);
+        
+        setTimeout(()=>{
+            setLoading(false);
+        },1000)
+        } );
+    }
+    useEffect(() => {
+        getData();
+    }, [searchparam])
 
    const handleChange=(e)=>{
     console.log(e.target.value)
     setSort(e.target.value);
     
-    sort==="low to high" ?
-    ProductData.sort((a,b)=>{
-        // if(a.price>b.price) return 1;
-        // if(a.price <b.price) return -1;
-        return b.price-a.price;
+    // sort==="low to high" ?
+    // ProductData.sort((a,b)=>{
+    //     // if(a.price>b.price) return 1;
+    //     // if(a.price <b.price) return -1;
+    //     return b.price-a.price;
        
-    }):
+    // }):
      
 
-    ProductData.sort((a,b)=>{
-        // if(a.price>b.price) return -1;
-        // if(a.price <b.price) return 1;
-        return a.price-b.price
-    })
+    // ProductData.sort((a,b)=>{
+    //     // if(a.price>b.price) return -1;
+    //     // if(a.price <b.price) return 1;
+    //     return a.price-b.price
+    // })
 
    }
 
-   const handleImage=(img3,i)=>{
-    console.log(1);
-    document.getElementById(i).src=img3;
-}
+
+   
+
+    const changeByClick=(value)=>{
+        let copy = new URLSearchParams(searchparam);
+        copy.set("_page",value);
+        setSearchParam(copy);
+        setCurrentPage(prev=>value);
+    }
+   
+    const handleImage=(img3,i)=>{
+    
+        document.getElementById(i).src=img3;
+    }
 
     return (
         <Box p={50}className="accessories_comp" bg="#ffffff">
@@ -102,15 +162,65 @@ const Accessories=()=>{
             <Text fontSize="20px"><span style={{color:"#c0867a"}}>Home</span> <span>{`>`}</span> <span>Accessories</span></Text>
             <Heading as='h1' fontSize="50px">Accessories</Heading>
             <Text fontSize="24px" style={{marginTop:"10px"}}>Shop Essential Accessories</Text>
-            <Box w="100%"  >
-            <Select w="20%" m="auto" mb="20" p={10} fontSize="20px"  onChange={handleChange} placeholder='Sort Price' variant='flushed' size='lg'>
-                <option value='low to high'>Low to High</option>
-                <option value='high to low'>High to Low</option>
-            </Select>
-            </Box>
-            <Grid gridTemplateColumns='repeat(4,1fr)' gap={20}>
+            <Box p={"1% 0%"} w="100%" m="auto" gap="8px" justifyContent="right" display="flex" >
                 
-            {ProductData.map((ele,i)=>{
+                        
+                    <FormControl  >
+                        
+
+                            <InputLabel sx={{fontSize:"1rem",backgroundColor:"white",padding:"2px"}} id="label">Sort By Price</InputLabel>
+                            <Select
+                            labelId="label"
+                            id="label"
+                            onChange={(e)=>sortChange(e)}
+                            sx={{width:"180px"}}
+                            label="Age"
+                            
+                            >
+                            
+                            <MenuItem value={'asc'}>Low to High</MenuItem>
+                            <MenuItem value={'desc'}>High to Low</MenuItem>
+                            
+                            </Select>
+                        
+                        
+                    </FormControl>
+                    <FormControl >
+
+                        <InputLabel sx={{fontSize:"1rem",backgroundColor:"white",padding:"2px"}} id="label">Filter By Category</InputLabel>
+                        <Select
+                            labelId="label"
+                            id="label"
+                            onChange={(e)=>filterChange(e)}
+                            sx={{width:"180px"}}
+                            label="Age"
+                        
+                        >
+                        
+                        <MenuItem value={'makeup'}>MakeUp</MenuItem>
+                        <MenuItem value={'skin'}>Skin</MenuItem>
+                        <MenuItem value={'hair'}>Hair</MenuItem>
+                        
+                        </Select>
+                        
+                    </FormControl>
+                
+            </Box>
+            {isLoading? 
+        <Box className='falseItem' w="100%" m="auto" display="grid" gridTemplateColumns='repeat(4,1fr)'  > 
+            {renderingData.map((ele)=>{
+            return <Box display={"grid"} p="5px" gap="5px">
+                        <Skeleton variant='rounded' width={"100%"} height="250px"  />
+                        <Skeleton variant='rounded' width={"100%"} height="70px"  />
+                        <Skeleton variant='rounded' width={"100%"} height="70px"  />
+
+                </Box>
+            
+            })}
+        </Box> :
+            <Grid className="falseItem" gridTemplateColumns='repeat(4,1fr)' gap={20}>
+                
+            {displayData.map((ele,i)=>{
                 return (
                     //  <CardBody key={i}>
                         
@@ -120,8 +230,16 @@ const Accessories=()=>{
                                 <Image id={i} onMouseLeave={()=>handleImage(ele.img1,i)} onMouseEnter={()=>handleImage(ele.img3,i)} boxSize='300px' w="100%"src={ele.img1} />
                                 <Box pos="absolute" bottom="1%" left="0" height="fit-content" bgColor="#ae867a"   w="30%" m="auto" color="white" p="3px">save {ele.discount}%</Box>
                                 </Box>
-                                <Text>{ele.title}</Text>
-                                <Text>${ele.price} USD</Text>
+                                <Box>
+                                    <Box>
+                                        <Text color="#58595b" fontSize="1.2rem" noOfLines={1}>{ele.title}</Text>
+                                        <Text color="#ae867a" textDecoration="line-through">${((ele.price)*120/100).toFixed(0)} USD</Text>
+                                    </Box>
+                                    <Box display="flex" textAlign="center" alignItems="center">
+                                        <Text color="#1b2120" fontSize="1.2rem">${ele.price} USD</Text>
+                                        <Box className='add_to' w="50%" m="auto" mr="0"> <Button onClick={(e)=>addToCart(e,ele)} w="100%" fontSize="17px" h={"50px"} p={5} style={{letterSpacing:"0.02em", color:"white",backgroundColor:"#ae867a",border:"none" ,borderRadius:"4px",cursor:"pointer"}}>{cartLoading.loading&&cartLoading.ele==ele.id?<CircularProgress color="inherit" />:"ADD TO CART"}</Button></Box>
+                                    </Box>
+                                </Box>
                             </Link>
                         </GridItem>
                         
@@ -129,7 +247,22 @@ const Accessories=()=>{
                    
                 )
             })}
-             </Grid>
+             </Grid>}
+             <Pagination currentPage={currentPage} changeByClick={changeByClick} setCurrentPage={changePages} totalProducts={totalProducts}/>
+             {showAlert?
+            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"red",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"3%",left:"45%" ,borderRadius:"8px" }}>
+            <MdError fontSize={"1.2rem"}/> <Text>
+                
+                Already in Cart!
+                </Text>
+            </Container>:""}
+            {showSucess?
+            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"green",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"3%",left:"45%" ,borderRadius:"8px" }}>
+            <AiFillCheckCircle fontSize={"1.2rem"}/> <Text>
+                
+                Added To Cart
+                </Text>
+        </Container>:""}
         </Box>
     )
 }
