@@ -104,14 +104,14 @@ const Login = (props) => {
             <Button onClick={handleSubmit} transition="all 0.2s linear;"  _hover={{backgroundColor:"grey"}}  bg="#1b2120" color="white" display="flex" gap="1%" height="70px" border="none" w="43%" p="0" h="50px" fontWeight="bold" fontSize="1.3rem"> <Text h="fit-content" > {cartLoading?<CircularProgress color="inherit" />:"Login"}</Text></Button>
             <Text width="100%">Don't Have an Account? <Link to={"/register"} style={{textDecoration:"underline",color:"#ae867a"}} >Sign Up</Link> </Text>
             {showAlert?
-            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"red",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"3%",left:"45%" ,borderRadius:"8px" }}>
+            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"red",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"15%",left:"45%" ,borderRadius:"8px" }}>
               <MdError fontSize={"1.2rem"}/> <Text>
                 
                 Wrong Credendials !
                 </Text>
             </Container>:""}
             {showSucess?
-            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"green",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"3%",left:"45%" ,borderRadius:"8px" }}>
+            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"green",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"15%",left:"45%" ,borderRadius:"8px" }}>
               <AiFillCheckCircle fontSize={"1.2rem"}/> <Text>
                 
                 Login Successfully

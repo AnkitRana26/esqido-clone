@@ -232,14 +232,14 @@ const FalseLashesh = () => {
         </Grid>}
         <Pagination currentPage={currentPage} changeByClick={changeByClick} setCurrentPage={changePages} totalProducts={totalProducts}/>
         {showAlert?
-            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"red",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"3%",left:"45%" ,borderRadius:"8px" }}>
+            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"red",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"10%",left:"45%" ,borderRadius:"8px" }}>
             <MdError fontSize={"1.2rem"}/> <Text>
                 
                 Already in Cart!
                 </Text>
             </Container>:""}
             {showSucess?
-            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"green",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"3%",left:"45%" ,borderRadius:"8px" }}>
+            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"green",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"10%",left:"45%" ,borderRadius:"8px" }}>
             <AiFillCheckCircle fontSize={"1.2rem"}/> <Text>
                 
                 Added To Cart
