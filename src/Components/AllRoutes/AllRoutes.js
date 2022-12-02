@@ -8,14 +8,14 @@ import Cart from '../../Pages/Cart/Cart'
 import Login from '../Loginsignup/Login'
 import Create from '../Loginsignup/Create'
 import Address from '../../Pages/Address/Address'
-import Payment from '../Payment/Payment'
+import Payment from '../../Pages/Payment/Payment'
 const AllRoutes = () => {
   return (
     <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/falselashes' element={<FalseLashesh/>}/>
         <Route path='/accessories' element={<Accessories/>}/>
-        <Route path='/productdescription' element={<ProductDiscription/>}/>
+        <Route path='/productdescription/:id' element={<ProductDiscription/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Create/>}/>
