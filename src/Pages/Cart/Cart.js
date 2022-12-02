@@ -24,7 +24,7 @@ const Cart = () => {
 
   return (
     <div>
-             <Container  w="70%" m="1% auto" >
+             <Container  w="80%" m="3% auto" >
                     {   
                         cart.length>0 ? <CartItem getData={getData} cartData={cart}/>:<EmptyCart  />
                     }

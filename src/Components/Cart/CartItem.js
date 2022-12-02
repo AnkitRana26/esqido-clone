@@ -89,8 +89,8 @@ const CartItem = ({cartData,getData}) => {
 
               </div>
 
-            </div> :<Box key={ele.id} p="1%" m="1%"  display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"25% 75%"}   gap="1%" borderBottom="1px solid rgba(0,0,0,.15)" >
-                    <Image h="120px" w="120px" margin={isTablet?"auto":""} src={ele.img1} />
+            </div> :<Box box-shadow= "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px" key={ele.id} p="1%" m="1%"  display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"25% 75%"}   gap="1%" borderBottom="1px solid rgba(0,0,0,.15)" >
+                    <Image h="120px"  margin={isTablet?"auto":""} src={ele.img1} />
                     <Box p="1%" w="100%" display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"65% 35%"}  alignItems="center"  justifyContent="space-between" >
                           <Box h="fit-content" textAlign={isTablet?"center":"left"} >
                               <Text p="0" m="0" fontWeight="600" color="black">{ele.title}</Text>
