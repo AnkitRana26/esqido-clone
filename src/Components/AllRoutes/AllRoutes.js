@@ -8,7 +8,7 @@ import Cart from '../../Pages/Cart/Cart'
 import Login from '../Loginsignup/Login'
 import Create from '../Loginsignup/Create'
 import Address from '../../Pages/Address/Address'
-import Payment from '../Payment/Payment'
+import Payment from '../../Pages/Payment/Payment'
 const AllRoutes = () => {
   return (
     <Routes>
