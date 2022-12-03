@@ -1,13 +1,40 @@
 import {  Box, Button, HStack, Image, PinInput, PinInputField, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useState } from 'react'
 import { Heading } from '@chakra-ui/react'
 import { Badge } from '@mui/material'
 import payhere from "./payhere.png"
 import "./CompletePayment.css"
+import Modals from '../ThankYou/Modal'
+import checkout from "../ThankYou/Checkmark.gif"
+import payment from "./payment.mp3"
+import { useNavigate } from 'react-router-dom'
+
+
+
 const CompletePayment = () => {
+    const [pin ,setPin] = useState();
+    const [isSucess,setSucess] =useState(false);
+    let navigate = useNavigate()
     const changeHandler=(e)=>{
-        console.log(e)
+        setPin(e);
     }
+    const submithandler =()=>{
+        document.getElementById("sound").play();
+        setTimeout(() => {
+            setSucess(true);
+            
+        }, 600);
+        setTimeout(() => {
+            setSucess(false);
+            navigate("/");
+        }, 3500);
+        
+
+
+    }
+
+
+
   return (
     <>
     <Box  gap={"1%"} w={"30%"} display={"flex"} justifyContent={"center"} alignItems="center"  m="-3% auto 0 auto">
@@ -27,10 +54,16 @@ const CompletePayment = () => {
                     <PinInputField textAlign={"center"} outline="none" width={"50px"} height={"50px"} display="block"/>
                 </Box>
             </PinInput>
+            <audio id="sound" source src={payment}  autoplay />
         
-        <Button transition={"linear 0.5s"} _hover={{backgroundColor:"grey"}}  display={"block"} borderRadius="3px"  bgColor="green" color={"white"} margin={"8% auto 0% auto"} border={"none"} outline="none" p={"3%"} fontSize="1.2rem">Validate</Button>
+               
+        
+        <Button onClick={submithandler} transition={"linear 0.5s"} _hover={{backgroundColor:"grey"}}  display={"block"} borderRadius="3px"  bgColor="green" color={"white"} margin={"8% auto 0% auto"} border={"none"} outline="none" p={"3%"} fontSize="1.2rem">Validate</Button>
     </Box>
         <Image  display={"block"}  margin="10% auto 0% auto" src={payhere} />
+        {isSucess?<Modals bool={true}>
+        <Image height="430px" width="560px"  src={checkout}></Image>
+      </Modals>:""}
     </>
   )
 }
