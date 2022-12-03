@@ -13,7 +13,7 @@ function ImageBox({prodData}){
             arr.push(prodData[key]);
         }
     }
-    const [image, setImage] = useState(arr[1]);
+    const [image, setImage] = useState(arr[0]);
     // console.log(arr);
     return (
         <div id="image-box">
