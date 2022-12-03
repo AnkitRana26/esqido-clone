@@ -11,6 +11,7 @@ import Address from '../../Pages/Address/Address'
 import Payment from '../../Pages/Payment/Payment'
 import WrapperRoutes from '../WrapperRoutes'
 import NotFound from '../../Pages/NotFound/NotFound'
+import CompletePayment from '../CompletePayment/CompletePayment'
 const AllRoutes = () => {
   return (
     <Routes>
@@ -23,6 +24,7 @@ const AllRoutes = () => {
         <Route path='/register' element={<WrapperRoutes><Create/></WrapperRoutes>}/>
         <Route path='/address' element={<Address/>}/>
         <Route path='/payment' element={<Payment/>}/>
+        <Route path='/otp' element={<CompletePayment/>}/>
         <Route path='*' element={<WrapperRoutes><NotFound/></WrapperRoutes>}/>
         
 

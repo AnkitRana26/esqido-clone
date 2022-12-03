@@ -64,7 +64,7 @@ const Payment = () => {
         method:"DELETE",
       })
     })
-    navigate("/");
+    
   }
 
 
@@ -401,14 +401,11 @@ const Payment = () => {
               EmptyCart();
               setLoading(true);
               setTimeout(()=>{
-                setSucess(true);
-                setLoading(false);
+                navigate("/otp")
               },1500)
-              setTimeout(()=>{
-                setSucess(false);
-                navigate("/payment")
-              },5000)
-              }} gap="2%" w="23%"  height="35px"  p="0" fontWeight="medium" fontSize={isTablet?"2.5vw":"1.5vw"}>  <Text display="flex" alignItems="center"  >Pay Now</Text></Button>
+              
+             
+            }} gap="2%" w="23%"  height="35px"  p="0" fontWeight="medium" fontSize={isTablet?"2.5vw":"1.5vw"}>  <Text display="flex" alignItems="center"  >Pay Now</Text></Button>
       </Box>
       
       <Box display="flex" gap="5%">

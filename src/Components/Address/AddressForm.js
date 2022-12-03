@@ -192,11 +192,11 @@ const AddressForm = () => {
         />
         <Box display="flex" justifyContent="space-between" alignItems="center"  >
             <Text _hover={{color:"pink"}} cursor="pointer" p="8px" borderRadius="8px" color="#a07264" m="0 0" fontSize="1rem" >&#60; Return to cart</Text>
-            <Button  border="none" transition="all 0.2s linear;" borderRadius="5px"  _hover={{backgroundColor:"grey"}} bg="#1b2120" onClick={()=>{
+            <Button type="submit" border="none" transition="all 0.2s linear;" borderRadius="5px"  _hover={{backgroundColor:"grey"}} bg="#1b2120" onClick={()=>{
                 localStorage.setItem("address",JSON.stringify(form));
                 setForm(initialForm);
               navigate("/payment");
-              }} color="white" display="flex" gap="2%" w="23%"  height="35px"  p="0" fontWeight="medium" fontSize={isTablet?"2.5vw":"1.5vw"}>  <Text display="flex" alignItems="center" >Sumbit</Text></Button>
+              }} color="white" display="flex" gap="2%" w="20%"  height="40px"  p="0" fontWeight="medium" fontSize={isTablet?"2.5vw":"1.5vw"}>  <Text display="flex" alignItems="center" >Sumbit</Text></Button>
         </Box>
       </FormControl>
       <Box display="flex" gap="5%">
