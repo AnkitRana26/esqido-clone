@@ -1,11 +1,12 @@
-import React,{useEffect, useState}from 'react';
+import React,{useEffect, useRef, useState}from 'react';
 
-import { Box ,Image,Grid ,Heading ,Text,GridItem, Button, border} from '@chakra-ui/react';
+import { Box ,Image,Grid ,Heading ,Text,GridItem, Button, border, SliderTrack, SliderFilledTrack, SliderThumb} from '@chakra-ui/react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Skeleton  from '@mui/material/Skeleton';
 import "./FalseItem.css"
 import { FormControl, InputLabel, MenuItem,  Select,Container,CircularProgress } from '@mui/material';
 import Pagination from '../Pagination/Pagination';
+import {Slider} from '@mui/material'
 import {MdError} from 'react-icons/md';
 import {AiFillCheckCircle} from 'react-icons/ai';
 
@@ -21,6 +22,31 @@ const FalseLashesh = () => {
    const [showAlert,setAlert] = useState(false);
     const [showSucess,setSucess] = useState(false);
     const [cartLoading,setCartLoading] =useState({loading:false,ele:0});
+    const [labelPrice, setLabelPrice] = React.useState([0,1000]);
+    let ref = useRef();
+
+    const handleSlider = async(event, newValue) => {
+        setLabelPrice(newValue);
+        console.log(newValue)
+        
+            if(ref.current){
+                clearTimeout(ref.current);
+            }
+            ref.current=setTimeout(() => {
+                let copy = new URLSearchParams();
+                copy.set("price_gte",newValue[0]);
+                copy.set("price_lte",newValue[1]);
+                setSearchParam(copy);
+                
+            }, 1000);
+            
+    };
+
+      function valuetext(value) {
+        return `${value}°C`;
+      }
+      
+
 
 
     const postData =async(propdata)=>{
@@ -71,7 +97,7 @@ const FalseLashesh = () => {
         }
       }
 
-   console.log(totalProducts)
+//    console.log(totalProducts)
     const sortChange=(event)=>{
             let copy = new URLSearchParams(searchparam);
             console.log(""+new URLSearchParams(searchparam))
@@ -98,6 +124,7 @@ const FalseLashesh = () => {
 
     const getData=()=>{
         setLoading(true);
+        console.log(""+new URLSearchParams(searchparam))
         fetch("https://esqido-data.onrender.com/products?"+new URLSearchParams(searchparam)).then(res=>{
             setTotalProducts(res.headers.get('X-Total-Count'));
             return res.json();
@@ -170,6 +197,18 @@ const FalseLashesh = () => {
                         
                         <MenuItem value={'asc'}>Low to High</MenuItem>
                         <MenuItem value={'desc'}>High to Low</MenuItem>
+                        <MenuItem >
+                            
+                            <Slider
+                                value={labelPrice}
+                                onChange={handleSlider}
+                                valueLabelDisplay="auto"
+                                
+                                max="1000"
+                            />
+                            
+                        </MenuItem>
+
                         
                         </Select>
                         
@@ -177,14 +216,19 @@ const FalseLashesh = () => {
                     <FormControl >
 
                         <InputLabel sx={{fontSize:"1rem",backgroundColor:"white",padding:"2px"}} id="label">Filter By Category</InputLabel>
-                        <Select
-                            labelId="label"
-                            id="label"
-                            onChange={(e)=>filterChange(e)}
-                            sx={{width:"180px"}}
-                            label="Age"
                         
-                        >
+                        
+                        
+
+                            <Select
+                                labelId="label"
+                                id="label"
+                                onChange={(e)=>filterChange(e)}
+                                sx={{width:"180px"}}
+                                label="Age"
+                                
+                            >
+                       
                         
                         <MenuItem value={'makeup'}>MakeUp</MenuItem>
                         <MenuItem value={'skin'}>Skin</MenuItem>
