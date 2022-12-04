@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './Home.css';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
@@ -7,9 +7,31 @@ import {details} from './data';
 import Navbar from "../../Components/Home/Navbar";
 import Footer from "../../Components/Home/Footer";
 import { style } from "@mui/system";
+import Scroll2Top from "../../Components/Scroll2Top/Scroll2Top";
 
 function Home(){
-
+    const [visible, setVisible] = useState(false)
+  
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 300){
+      setVisible(true)
+    } 
+    else if (scrolled <= 300){
+      setVisible(false)
+    }
+  };
+  
+  const scrollToTop = () =>{
+    window.scrollTo({
+      top: 0, 
+      behavior: 'smooth'
+      /* you can also use 'auto' behaviour
+         in place of 'smooth' */
+    });
+  };
+  
+  window.addEventListener('scroll', toggleVisible);
 
     const settings = {
         dots: true,
@@ -136,7 +158,8 @@ function Home(){
                 <h3>Shop the Gel Pencil Eyeliner</h3>
                 <img src="https://cdn.shopify.com/s/files/1/0250/1519/t/14/assets/esqfranlinerblackcompressed-1635290028363.jpg?v=1635290029"/>
             </div>
-            {/* <Footer/> */}
+            {/* <Footer/> */}\
+            {visible?<Scroll2Top/>:""}
         </div>
     )
 }
