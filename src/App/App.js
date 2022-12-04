@@ -18,7 +18,6 @@ function App() {
               <Navsticky/>
               <AllRoutes/>
               <Footer/>
-
     </div>
   );
 }
