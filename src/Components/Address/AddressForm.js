@@ -196,7 +196,7 @@ const AddressForm = () => {
                 localStorage.setItem("address",JSON.stringify(form));
                 setForm(initialForm);
               navigate("/payment");
-              }} color="white" display="flex" gap="2%" w="20%"  height="40px"  p="0" fontWeight="medium" fontSize={isTablet?"2.5vw":"1.5vw"}>  <Text display="flex" alignItems="center" >Sumbit</Text></Button>
+              }} color="white" display="flex" gap="2%" w="20%"  height="45px"  p="0" fontWeight="medium" fontSize={isTablet?"2.5vw":"1.5vw"}>  <Text display="flex" alignItems="center" >Sumbit</Text></Button>
         </Box>
       </FormControl>
       <Box display="flex" gap="5%">

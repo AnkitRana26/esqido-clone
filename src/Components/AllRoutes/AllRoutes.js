@@ -12,6 +12,7 @@ import Payment from '../../Pages/Payment/Payment'
 import WrapperRoutes from '../WrapperRoutes'
 import NotFound from '../../Pages/NotFound/NotFound'
 import CompletePayment from '../CompletePayment/CompletePayment'
+import OrderPage from '../OrderPage/OrderPage'
 const AllRoutes = () => {
   return (
     <Routes>
@@ -22,9 +23,11 @@ const AllRoutes = () => {
         <Route path='/cart' element={<WrapperRoutes><Cart/></WrapperRoutes>}/>
         <Route path='/login' element={<WrapperRoutes><Login/></WrapperRoutes>}/>
         <Route path='/register' element={<WrapperRoutes><Create/></WrapperRoutes>}/>
+        <Route path='/order' element={<WrapperRoutes><OrderPage/></WrapperRoutes>}/>
         <Route path='/address' element={<Address/>}/>
         <Route path='/payment' element={<Payment/>}/>
         <Route path='/otp' element={<CompletePayment/>}/>
+        
         <Route path='*' element={<WrapperRoutes><NotFound/></WrapperRoutes>}/>
         
 

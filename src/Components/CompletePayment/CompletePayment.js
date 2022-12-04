@@ -26,7 +26,7 @@ const CompletePayment = () => {
         }, 600);
         setTimeout(() => {
             setSucess(false);
-            navigate("/");
+            navigate("/order");
         }, 3500);
         
 
@@ -60,7 +60,8 @@ const CompletePayment = () => {
         
         <Button onClick={submithandler} transition={"linear 0.5s"} _hover={{backgroundColor:"grey"}}  display={"block"} borderRadius="3px"  bgColor="green" color={"white"} margin={"8% auto 0% auto"} border={"none"} outline="none" p={"3%"} fontSize="1.2rem">Validate</Button>
     </Box>
-        <Image  display={"block"}  margin="10% auto 0% auto" src={payhere} />
+        <Text fontWeight={"500"} fontSize={"1.3rem"} m={"0"} textAlign={"center"} >OrderId:- {localStorage.getItem("orderId")}</Text>
+        <Image  display={"block"}  margin="7% auto 0% auto" src={payhere} />
         {isSucess?<Modals bool={true}>
         <Image height="430px" width="560px"  src={checkout}></Image>
       </Modals>:""}

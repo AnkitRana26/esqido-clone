@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "@chakra-ui/accordion";
+import shortid from "shortid";
 import { Image } from "@chakra-ui/image";
 import { Box, Text } from "@chakra-ui/layout";
 import { useMediaQuery } from "@chakra-ui/media-query";
@@ -59,12 +60,13 @@ const Payment = () => {
   const EmptyCart=async()=>{
     let res = await fetch(`https://esqido-data.onrender.com/cart`);
     let data = await res.json();
+    localStorage.setItem("order",JSON.stringify(data));
     data.map(async(ele)=>{
       let res = await fetch(`https://esqido-data.onrender.com/cart/${ele.id}`,{
         method:"DELETE",
       })
     })
-    
+    localStorage.removeItem("coupon");
   }
 
 
@@ -400,12 +402,13 @@ const Payment = () => {
             <Button  border="none" transition="all 0.2s linear;" borderRadius="5px"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" onClick={()=>{
               EmptyCart();
               setLoading(true);
+              localStorage.setItem("orderId",shortid.generate());
               setTimeout(()=>{
                 navigate("/otp")
               },1500)
               
              
-            }} gap="2%" w="23%"  height="35px"  p="0" fontWeight="medium" fontSize={isTablet?"2.5vw":"1.5vw"}>  <Text display="flex" alignItems="center"  >Pay Now</Text></Button>
+            }} gap="2%" w="23%"  height="40px"  p="0" fontWeight="medium" fontSize={isTablet?"2.5vw":"1.5vw"}>  <Text display="flex" alignItems="center"  >Pay Now</Text></Button>
       </Box>
       
       <Box display="flex" gap="5%">

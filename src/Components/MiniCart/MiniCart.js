@@ -39,6 +39,13 @@ const MiniCart = ({cartData,getData,position}) => {
     getData();
   }
 
+  useEffect(()=>{
+    if(localStorage.getItem("coupon")){
+      setDiscount(totalPrice()*10/100)
+
+    }
+  },[])
+
   const removeCart=async(id)=>{
     let res = await fetch(`https://esqido-data.onrender.com/cart/${id}`,{
       method:"DELETE"
@@ -120,6 +127,7 @@ const MiniCart = ({cartData,getData,position}) => {
         <Button onClick={()=>{
           console.log("Hello");
           if(refrence.current.value==="Masai10"){
+            localStorage.setItem("coupon",true);
             setDiscount(totalPrice()*10/100);
           }
           // reference.current.value="";
