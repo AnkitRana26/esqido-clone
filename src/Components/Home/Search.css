@@ -1,0 +1,32 @@
+#search{
+    margin-left: -150%;
+    margin-right: -80%;
+}
+
+#search>input{
+    width: 60%;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 50px;
+    /* padding-right: 0; */
+    /* margin-right: 280px; */
+    /* background-color: red */
+    /* border: 1px solid green; */
+    margin-left: -50%;
+}
+
+.item{
+    position: relative;
+    top: -50;
+    width: 78%;
+    padding: 10px;
+    padding-left: 10px;
+    margin-left: -50%;
+    display: flex;
+    gap: 8px;
+    background-color:white;
+}
+.item>img{
+    width: 22%;
+    height: 22%;
+}

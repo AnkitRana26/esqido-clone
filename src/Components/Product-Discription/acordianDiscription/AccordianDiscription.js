@@ -16,7 +16,7 @@ export const AcordianDiscription = () => {
         <AccordionItem  >
           <h2 style={{marginBottom:"23px"}} >
             <AccordionButton
-            fontSize={'1rem'}
+            fontSize={'1.1rem'}
               h={"50px"}
               border={"none"}
              
@@ -51,7 +51,7 @@ export const AcordianDiscription = () => {
           <h2 style={{marginBottom:"23px"}}>
             <AccordionButton
               
-              fontSize={'1rem'}
+              fontSize={'1.1rem'}
               h={"50px"}
               marginTop={"-20px"}
               border={"0px"}
@@ -78,7 +78,7 @@ export const AcordianDiscription = () => {
         <AccordionItem>
           <h2 style={{marginBottom:"23px"}}>
             <AccordionButton
-            fontSize={'1rem'}
+            fontSize={'1.1rem'}
               h={"50px"}
               marginTop={"-20px"}
               border={"0px"}
@@ -104,7 +104,7 @@ export const AcordianDiscription = () => {
         <AccordionItem p={"0"} >
           <h2 style={{marginBottom:"23px"}}>
             <AccordionButton
-            fontSize={'1rem'}
+            fontSize={'1.1rem'}
               h={"50px"}
               marginTop={"-20px"}
               border={"0px"}

@@ -177,9 +177,13 @@ const Accessories=()=>{
     return (
         <Box p={50}className="accessories_comp" bg="#ffffff">
            
-            <Text fontSize="20px"><span style={{color:"#c0867a"}}>Home</span> <span>{`>`}</span> <span>Accessories</span></Text>
-            <Heading as='h1' fontSize="50px">Accessories</Heading>
-            <Text fontSize="24px" style={{marginTop:"10px"}}>Shop Essential Accessories</Text>
+           <Text color="#ae867a" fontSize="1.2rem" fontWeight="medium">
+                Home &gt;
+                <span style={{ color: "black" }}> Accessories </span>
+            </Text>
+            <Heading as="h1" fontWeight="700" marginTop={"3%"}    fontSize="2em" color={"white"} width="fit-content" p={"1% 5% 1% 1%"} backgroundColor={"#ae867a"} >Accessories</Heading>
+            
+            
             <Box p={"1% 0%"} w="100%" m="auto" gap="8px" justifyContent="right" display="flex" >
                 
                         
@@ -278,14 +282,14 @@ const Accessories=()=>{
              </Grid>}
              <Pagination currentPage={currentPage} changeByClick={changeByClick} setCurrentPage={changePages} totalProducts={totalProducts}/>
              {showAlert?
-            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"red",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"3%",left:"45%" ,borderRadius:"8px" }}>
+            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"red",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"10%",left:"45%" ,borderRadius:"8px" }}>
             <MdError fontSize={"1.2rem"}/> <Text>
                 
                 Already in Cart!
                 </Text>
             </Container>:""}
             {showSucess?
-            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"green",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"3%",left:"45%" ,borderRadius:"8px" }}>
+            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"green",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"10%",left:"45%" ,borderRadius:"8px" }}>
             <AiFillCheckCircle fontSize={"1.2rem"}/> <Text>
                 
                 Added To Cart
