@@ -12,13 +12,8 @@ import Navsticky from '../Components/Home/Navsticky';
 
 function App() {
   return (
-    <div className="App">
-
-              <Navbar/>
-              <Navsticky/>
+    <div className="App">   
               <AllRoutes/>
-              <Footer/>
-
     </div>
   );
 }

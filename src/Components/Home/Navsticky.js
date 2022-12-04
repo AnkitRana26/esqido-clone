@@ -2,6 +2,10 @@ import React from "react";
 import './Nav.css'
 import {NavLink, Link} from 'react-router-dom';
 import Search from "./Search";
+import { padding } from "@mui/system";
+import { background } from "@chakra-ui/react";
+
+
 
 function Navsticky(){
 
