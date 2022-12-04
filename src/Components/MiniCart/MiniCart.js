@@ -67,16 +67,16 @@ const MiniCart = ({cartData,getData,position}) => {
        
       
     </Container>
-      <Box className='cartDiv' height="300px" overflowY="auto" overflowX="hidden" display="grid" alignItems="center" fontSize="large" color="#58595B" fontWeight="semibold" border="1px solid rgba(0,0,0,.15)"   >
+      <Box className='cartDiv' height="350px" overflowY="auto" overflowX="hidden" display="grid" alignItems="center" fontSize="large" color="#58595B" fontWeight="semibold" border="1px solid rgba(0,0,0,.15)"   >
       {
         cartData.map(ele=>{
-          return <Box  key={ele.id} p="2%"   display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"20% 80%"}   gap="1%" borderBottom="1px solid rgba(0,0,0,.15)" >
-                  <Image h="80px" w="80px" margin={isTablet?"auto":""} src={ele.img1} />
+          return <Box  key={ele.id} p="2%"   display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"25% 75%"}   gap="1%" borderBottom="1px solid rgba(0,0,0,.15)" >
+                  <Image h="100px" w="100px" margin={isTablet?"auto":""} src={ele.img1} />
                   <Box p="1%" w="100%" display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"62% 38%"}  alignItems="center"  justifyContent="space-between" >
                         <Box h="fit-content" textAlign={isTablet?"center":"left"} >
-                            <Text p="0" m="0" fontSize="0.8rem" fontWeight="600" color="black" noOfLines={1}>{ele.title}</Text>
+                            <Text p="0" m="0" fontSize="1rem" fontWeight="600" color="black" noOfLines={1}>{ele.title}</Text>
                     
-                            <Text p="0" margin="0" fontWeight="600" fontSize="0.7rem" color="#ae867a">Price:- ${ele.price}/Unit</Text>
+                            <Text p="0" margin="0" fontWeight="600" fontSize="0.7rem" color="#422828">Price:- ${ele.price}/Unit</Text>
                         </Box>
                         <Box display="flex" alignItems="center"  justifyContent="space-between"  >
                               <Box>
@@ -104,7 +104,7 @@ const MiniCart = ({cartData,getData,position}) => {
                               </Box>
                               <Box fontSize="0.9rem"  w={isTablet?"20%":"50%"}  display="flex" alignItems="center" justifyContent="space-around">
                                 <Text>${(ele.price*ele.qty).toFixed(0)}</Text>
-                                <AiFillDelete color="#f43b62" onClick={()=>removeCart(ele.id)}/>
+                                <AiFillDelete color=" rgb(147 43 11)" onClick={()=>removeCart(ele.id)}/>
                               </Box>
                         </Box>
                   </Box>

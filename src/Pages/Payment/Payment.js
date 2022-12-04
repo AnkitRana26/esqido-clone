@@ -26,7 +26,7 @@ const Payment = () => {
     <Box color="#333333"  backgroundColor="rgb(255,255,255)"  overflowX="hidden" w="100%" height="fit-content" m="auto" display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"65% 35%"} >
         <PaymentComp/>
         <Box backgroundColor="rgba(251,250,251,255)" display={isTablet?"none":"block"}   >
-                {cart.length>0?<MiniCart getData={getData} cartData={cart} position={"fixed"}/>:<EmptyCart position={'fixed'}/>}
+                {cart.length>0?<MiniCart getData={getData} cartData={cart} position={"fixed"}/>:<EmptyCart width={"35%"} position={'fixed'}/>}
         </Box>
     </Box>
   )

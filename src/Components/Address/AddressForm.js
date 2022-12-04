@@ -11,7 +11,7 @@ import {
   Text,
   useMediaQuery,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Checkbox,
   FormControl,
@@ -26,6 +26,7 @@ import payPal from "../Cart/payPal.png"
 import gPay from "../Cart/gPay.jpg"
 import MiniCart from "../MiniCart/MiniCart";
 import { BsFillCartCheckFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const initialForm = {
   country: "",
@@ -43,12 +44,28 @@ const initialForm = {
 const AddressForm = () => {
   const [form, setForm] = useState(initialForm);
   const [isTablet] = useMediaQuery("(max-width:900px)");
+  const [user,setUser] = useState({});
+  let navigate =  useNavigate()
+  
+
+
+  let localUser = JSON.parse(localStorage.getItem("loggedUser"));
+  useEffect(()=>{
+    if(!localUser){
+      navigate("/");
+    }
+    else{
+      setUser(localUser);
+    }
+  },[])
+  
 
   const changeHandler=(event)=>{
         let {name,value} = event.target;
         setForm(prev=>{
             return {...prev,[name]:value};
         })
+        
   }
 
   return (
@@ -109,8 +126,8 @@ const AddressForm = () => {
             mb="0"
             fontSize="1rem"
           >
-            <span>{"Ankit Rana"}</span>{" "}
-            <span>({"ranaankitr@outlook.com"})</span>
+            <span>{user.firstname+" "+user.lastname}</span>{" "}
+            <span>({user.email})</span>
           </Text>
           <Button
             fontSize="1rem"
@@ -118,6 +135,10 @@ const AddressForm = () => {
             color="#a07264"
             bg="transparent"
             border="none"
+            onClick={()=>{
+              localStorage.removeItem("loggedUser");
+              navigate("/login");
+            }}
           >
             Log Out
           </Button>
@@ -171,7 +192,11 @@ const AddressForm = () => {
         />
         <Box display="flex" justifyContent="space-between" alignItems="center"  >
             <Text _hover={{color:"pink"}} cursor="pointer" p="8px" borderRadius="8px" color="#a07264" m="0 0" fontSize="1rem" >&#60; Return to cart</Text>
-            <Button  border="none" transition="all 0.2s linear;" borderRadius="5px"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="2%" w="23%"  height="35px"  p="0" fontWeight="medium" fontSize={isTablet?"2.5vw":"1.5vw"}>  <Text display="flex" alignItems="center" >Sumbit</Text></Button>
+            <Button type="submit" border="none" transition="all 0.2s linear;" borderRadius="5px"  _hover={{backgroundColor:"grey"}} bg="#1b2120" onClick={()=>{
+                localStorage.setItem("address",JSON.stringify(form));
+                setForm(initialForm);
+              navigate("/payment");
+              }} color="white" display="flex" gap="2%" w="20%"  height="40px"  p="0" fontWeight="medium" fontSize={isTablet?"2.5vw":"1.5vw"}>  <Text display="flex" alignItems="center" >Sumbit</Text></Button>
         </Box>
       </FormControl>
       <Box display="flex" gap="5%">

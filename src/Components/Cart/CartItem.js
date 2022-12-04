@@ -64,16 +64,16 @@ const CartItem = ({cartData,getData}) => {
 
 
 
-  return (
+  return  (
     <div className='emptyCart' >
       
       <Container p="1% 0%" borderBottom="1px solid rgba(0,0,0,.15)" borderTop="1px solid rgba(0,0,0,.15)" mb="1%" display="grid" gridTemplateColumns="70% 30%" alignItems="center"  justifyContent="space-between" >
         
 
-          <Box display="flex" alignItems="center" backgroundColor="transparent" textAlign="left"    gap="2%" marginBottom="1%"  p="0% 5%" fontSize={isTablet?"4vw":"2.5vw"} fontWeight="600" w="60%"  >Your Cart <BsFillCartCheckFill/> </Box>
+          <Box display="flex" alignItems="center" backgroundColor="transparent" textAlign="left"    gap="2%" marginBottom="1%"  p="0% 5%" fontSize={isTablet?"4vw":"2.5vw"} fontWeight="600" w="60%"  ><Text m={"0"}>Your Cart</Text> <BsFillCartCheckFill/> </Box>
           <Box display="grid"  justifyContent="space-between" gridTemplateColumns={isTablet?"40% 60%":"50% 50%"} alignItems="center">
             <Text textAlign="center" fontSize={isTablet?"2.5vw":"1.7vw"}>${totalPrice()}</Text>
-            <Button float="right"  border="none" transition="all 0.2s linear;"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="2%" w="100%"  height={isTablet?"40px":"50px"}  p="0" fontWeight="medium" fontSize={isTablet?"2.5vw":"1.7vw"}>  <Text display="flex" alignItems="center" >Checkout</Text></Button>
+            <Button float="right" borderRadius={"3px"} border="none" transition="all 0.2s linear;"  _hover={{backgroundColor:"#ae867a"}} bg="#1b2120" color="white" display="flex" gap="2%" w="100%"  height={isTablet?"40px":"50px"} onClick={()=>navigate('/address')}  p="0" fontWeight="medium" fontSize={isTablet?"2.5vw":"1.7vw"}>  <Text display="flex" alignItems="center" >Checkout</Text></Button>
           </Box>
         
       </Container>
@@ -89,13 +89,13 @@ const CartItem = ({cartData,getData}) => {
 
               </div>
 
-            </div> :<Box key={ele.id} p="1%" m="1%"  display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"25% 75%"}   gap="1%" borderBottom="1px solid rgba(0,0,0,.15)" >
-                    <Image h="120px" w="120px" margin={isTablet?"auto":""} src={ele.img1} />
+            </div> :<Box box-shadow= "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px" key={ele.id} p="1%" m="1%"  display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"25% 75%"}   gap="1%" borderBottom="1px solid rgba(0,0,0,.15)" >
+                    <Image h="120px"  margin={isTablet?"auto":""} src={ele.img1} />
                     <Box p="1%" w="100%" display="grid" gridTemplateColumns={isTablet?"repeat(1,1fr)":"65% 35%"}  alignItems="center"  justifyContent="space-between" >
                           <Box h="fit-content" textAlign={isTablet?"center":"left"} >
-                              <Text p="0" m="0" fontWeight="600" color="black">{ele.title}</Text>
+                              <Text p="0" m="0" fontWeight="400" fontSize={"1.4rem"} color="black">{ele.title}</Text>
                       
-                              <Text p="0" margin="0" fontWeight="600" color="#ae867a">Price:- ${ele.price}/Unit</Text>
+                              <Text p="0" margin="0" fontWeight="400" color="#f43b62">Price:- ${ele.price}/Unit</Text>
                           </Box>
                           <Box display="flex" alignItems="center"  justifyContent="space-between"  >
                                 <Box>
@@ -123,7 +123,7 @@ const CartItem = ({cartData,getData}) => {
                                 </Box>
                                 <Box fontSize="1.5vw"  w={isTablet?"20%":"50%"}  display="flex" alignItems="center" justifyContent="space-around">
                                   <Text>${ele.price*ele.qty}</Text>
-                                  <AiFillDelete color="#ae867a" onClick={()=>removeCart(ele.id)}/>
+                                  <AiFillDelete className='deleteButton' color="rgb(147 43 11)" onClick={()=>removeCart(ele.id)}/>
 
                                 </Box>
                           </Box>
@@ -138,7 +138,7 @@ const CartItem = ({cartData,getData}) => {
           <Text>${totalPrice()}</Text>
         </Box>
         <Text mt="8%" fontSize={isTablet?"2.5vw":"1.3vw"}>*Shipping & taxes calculated at checkout</Text>
-        <Button transition="all 0.2s linear;"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="1%"  height={isTablet?"50px":"70px"} border="none" w="100%" p="0" fontWeight="bold" fontSize={isTablet?"3vw":"1.7vw"} onClick={()=>navigate('/address')} > <BsFillPatchCheckFill h="fit-content" /> <Text h="fit-content" >Checkout</Text></Button>
+        <Button transition="all 0.5s linear;"  borderRadius={"3px"} _hover={{backgroundColor:"#ae867a"}} bg="#1b2120" color="white" display="flex" gap="1%"  height={isTablet?"50px":"70px"} border="none" w="100%" p="0" fontWeight="bold" fontSize={isTablet?"3vw":"1.7vw"} onClick={()=>navigate('/address')} > <BsFillPatchCheckFill h="fit-content" /> <Text h="fit-content" >Checkout</Text></Button>
         <Box  display="flex" justifyContent="center" gap="1%" p="3% 0%">
           <Button border="none" bg="transparent" borderRadius="8px" > <Image borderRadius="8px" width="120px" height="55px" src={shopPay}/> </Button>
           <Button border="none" bg="transparent" borderRadius="8px" > <Image borderRadius="8px" width="120px" height="55px" src={payPal}/> </Button>

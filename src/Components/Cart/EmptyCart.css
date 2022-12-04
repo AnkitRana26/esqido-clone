@@ -1,0 +1,7 @@
+.deleteButton:hover{
+    color: #ae867a;
+}
+
+.deleteButton{
+    transition: 0.5s linear;
+}
