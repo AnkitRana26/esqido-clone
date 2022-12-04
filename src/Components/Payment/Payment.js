@@ -10,12 +10,13 @@ import { Box, Text } from "@chakra-ui/layout";
 import { useMediaQuery } from "@chakra-ui/media-query";
 import { Button, Spinner } from "@chakra-ui/react";
 import { Checkbox, FormControl, FormControlLabel, TextField } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsFillCartCheckFill,BsInfoCircleFill } from "react-icons/bs";
 import { HiLockClosed } from "react-icons/hi";
 import MiniCart from "../MiniCart/MiniCart";
 import Modals from "../ThankYou/Modal";
 import checkout from "../ThankYou/Checkmark.gif"
+import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
   const [isTablet] = useMediaQuery("(max-width:900px)");
@@ -23,7 +24,24 @@ const Payment = () => {
   const [selected1,setSelect1] = useState(1);
   const [isLoading,setLoading] =useState(false);
   const [isSucess,setSucess] =useState(false);
+  const [user,setUser] = useState({});
+  let navigate =  useNavigate()
+  
 
+
+  let localUser = JSON.parse(localStorage.getItem("loggedUser"));
+  
+  useEffect(()=>{
+    if(!localUser){
+      navigate("/");
+    }
+    else{
+      setUser(localUser);
+    }
+  },[])
+  
+  let address = JSON.parse(localStorage.getItem("address"))||{};
+  
 
   const sucessPayment =()=>{
     setLoading(true);
@@ -35,6 +53,17 @@ const Payment = () => {
       setSucess(false);
     },4000)
 
+    
+  }
+  
+  const EmptyCart=async()=>{
+    let res = await fetch(`https://esqido-data.onrender.com/cart`);
+    let data = await res.json();
+    data.map(async(ele)=>{
+      let res = await fetch(`https://esqido-data.onrender.com/cart/${ele.id}`,{
+        method:"DELETE",
+      })
+    })
     
   }
 
@@ -99,7 +128,7 @@ const Payment = () => {
           paddingBottom="1%"
           borderBottom="1px solid #e4e4e4"
         >
-          {"ranankitr@outlook.com"}
+          {user.email}
         </Text>
         <Text
           paddingTop="0"
@@ -124,7 +153,7 @@ const Payment = () => {
           paddingBottom="1%"
           borderBottom="1px solid #e4e4e4"
         >
-          {"New Delhi"}
+          {address.city+", "+address.country+", "+address.pincode}
         </Text>
         <Text
           paddingTop="0"
@@ -218,7 +247,7 @@ const Payment = () => {
             <TextField sx={{width:"100%"}} id="filled-number" label="Expiry Date (MM/YY)"   />
             <Box width="100%" position="relative">
 
-              <TextField sx={{width:"100%"}} id="filled-number" label="Security Code"   />
+              <TextField sx={{width:"100%"}} id="filled-number" type={"password"} label="Security Code"   />
               <BsInfoCircleFill style={{position:"absolute",top:"30%",right:"4%",fontSize:"1.2rem",color:"#919191"}}/>
             </Box>
             </Box>
@@ -368,7 +397,15 @@ const Payment = () => {
       </Box>
       <Box mb="10%" display="flex" justifyContent="space-between" alignItems="center"  >
             <Text _hover={{color:"pink"}} cursor="pointer" p="8px" borderRadius="8px" color="#a07264" m="0 0" fontSize="1rem" >&#60; Return to cart</Text>
-            <Button  border="none" transition="all 0.2s linear;" borderRadius="5px"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" gap="2%" w="23%"  height="35px"  p="0" fontWeight="medium" fontSize={isTablet?"2.5vw":"1.5vw"}>  <Text display="flex" alignItems="center" onClick={sucessPayment} >Pay Now</Text></Button>
+            <Button  border="none" transition="all 0.2s linear;" borderRadius="5px"  _hover={{backgroundColor:"grey"}} bg="#1b2120" color="white" display="flex" onClick={()=>{
+              EmptyCart();
+              setLoading(true);
+              setTimeout(()=>{
+                navigate("/otp")
+              },1500)
+              
+             
+            }} gap="2%" w="23%"  height="35px"  p="0" fontWeight="medium" fontSize={isTablet?"2.5vw":"1.5vw"}>  <Text display="flex" alignItems="center"  >Pay Now</Text></Button>
       </Box>
       
       <Box display="flex" gap="5%">

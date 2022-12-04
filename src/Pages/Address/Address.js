@@ -33,7 +33,7 @@ const Address = () => {
             
             <AddressForm/>
             <Box backgroundColor="rgba(251,250,251,255)" display={isTablet?"none":"block"}   >
-            {cart.length>0?<MiniCart getData={getData} cartData={cart} position={"fixed"}/>:<EmptyCart position={'fixed'}/>}
+            {cart.length>0?<MiniCart getData={getData} cartData={cart} position={"fixed"}/>:<EmptyCart width={"35%"} position={'fixed'}/>}
             </Box>
             
         </Box>

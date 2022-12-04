@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Box ,Heading,Text,Grid,Image,GridItem,Stack, Button} from "@chakra-ui/react";
 import { Link, useSearchParams } from "react-router-dom";
 import "./FalseItem.css"
-import { CircularProgress, FormControl, MenuItem, Skeleton } from "@mui/material";
+import { CircularProgress, FormControl, MenuItem, Skeleton, Slider } from "@mui/material";
 import {Select,InputLabel,Container} from "@mui/material";
 import Pagination from "../Pagination/Pagination";
 import {MdError} from 'react-icons/md';
@@ -20,7 +20,25 @@ const Accessories=()=>{
     const [showAlert,setAlert] = useState(false);
     const [showSucess,setSucess] = useState(false);
     const [cartLoading,setCartLoading] =useState({loading:false,ele:0});
+    const [labelPrice, setLabelPrice] = React.useState([0,1000]);
+    let ref = useRef();
 
+    const handleSlider = async(event, newValue) => {
+        setLabelPrice(newValue);
+        console.log(newValue)
+        
+            if(ref.current){
+                clearTimeout(ref.current);
+            }
+            ref.current=setTimeout(() => {
+                let copy = new URLSearchParams();
+                copy.set("price_gte",newValue[0]);
+                copy.set("price_lte",newValue[1]);
+                setSearchParam(copy);
+                
+            }, 1000);
+            
+    };
 
     const postData =async(propdata)=>{
         let newData={...propdata};
@@ -184,7 +202,17 @@ const Accessories=()=>{
                             
                             <MenuItem value={'asc'}>Low to High</MenuItem>
                             <MenuItem value={'desc'}>High to Low</MenuItem>
+                            <MenuItem >
                             
+                            <Slider
+                                value={labelPrice}
+                                onChange={handleSlider}
+                                valueLabelDisplay="auto"
+                                
+                                max="1000"
+                            />
+                            
+                        </MenuItem>
                             </Select>
                         
                         
@@ -254,14 +282,14 @@ const Accessories=()=>{
              </Grid>}
              <Pagination currentPage={currentPage} changeByClick={changeByClick} setCurrentPage={changePages} totalProducts={totalProducts}/>
              {showAlert?
-            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"red",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"3%",left:"45%" ,borderRadius:"8px" }}>
+            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"red",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"10%",left:"45%" ,borderRadius:"8px" }}>
             <MdError fontSize={"1.2rem"}/> <Text>
                 
                 Already in Cart!
                 </Text>
             </Container>:""}
             {showSucess?
-            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"green",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"3%",left:"45%" ,borderRadius:"8px" }}>
+            <Container  sx={{fontSize:"1rem",gap:"3px", width:"fit-content",bgcolor:"green",color:"white",display:"flex",justifyContent:"center",alignItems:"center",position:"fixed",top:"10%",left:"45%" ,borderRadius:"8px" }}>
             <AiFillCheckCircle fontSize={"1.2rem"}/> <Text>
                 
                 Added To Cart
