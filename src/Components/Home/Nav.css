@@ -26,10 +26,46 @@
     width: 100%; 
 }
 #bottom>div:nth-child(3){
-    /* position: fixed; */
     display: flex;
     justify-content: space-between;
     width: 8%;
     margin-right: -9%;
-    /* border:  1px solid red; */
 }
+
+#name{
+    box-sizing: border-box;
+    font-size: 24px;
+    width: 30px;
+    padding-top: 5px;
+    text-align: center;
+    padding-bottom: 12px;
+    border-radius: 50%;
+    margin-top: -12px;
+    color: black;
+}
+.drop{
+  display: none;
+  position: absolute;
+  background-color: white;
+  float:inline-start;
+  margin-top: 32px;
+    padding: 0px 8px 0px 8px;
+    z-index: 1;
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+}
+#name:hover .drop{
+    display:inline;
+    color: black;
+    z-index: 1;
+right: 80px;
+}
+.drop>h3{
+    margin:2px;
+    padding: 5px;
+    font-weight: 400;
+    font-size: 20px;
+}
+.drop>h3:hover{
+    color: rgb(155, 47, 35);
+}
+

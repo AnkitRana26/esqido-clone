@@ -1,6 +1,6 @@
 #search{
     margin-left: -150%;
-    margin-right: -80%;
+    margin-right: -100%;
 }
 
 #search>input{
@@ -16,9 +16,11 @@
 }
 
 .item{
-    position: relative;
-    top: -50;
-    width: 78%;
+    position:relative;
+    /* top: -50; */
+    /* right:5px; */
+    width: 230px;
+    height: 60px;
     padding: 10px;
     padding-left: 10px;
     margin-left: -50%;
@@ -27,6 +29,5 @@
     background-color:white;
 }
 .item>img{
-    width: 22%;
-    height: 22%;
+    width: 30%;
 }
