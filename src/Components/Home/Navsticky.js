@@ -18,8 +18,8 @@ function Navsticky(){
             console.log("hhhhh");
            setUser(true);
        }
-       else if(regUser==false){
-        setUser(user);
+       else{
+        setUser(false);
        }
     }, [regUser])
 

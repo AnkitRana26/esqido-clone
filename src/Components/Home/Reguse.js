@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import './Nav.css'
 
 function Reguse(){
 
     let navigate =  useNavigate() 
     let [name,setName]=React.useState("");    
+    let regUser = JSON.parse(localStorage.getItem("loggedUser")) || false;
 
     useEffect(()=>{
         let regUser = JSON.parse(localStorage.getItem("loggedUser")) || false;
@@ -22,7 +23,10 @@ function Reguse(){
         <div id="name">
         {name}
         <div className="drop">
+            <h3>{regUser.firstname}</h3>
+            <Link style={{fontSize:"18px", textDecoration:"none", color:"black"}} to={"/order"}>Orders</Link>
             <h3 onClick={logout}>Logout</h3>
+            
         </div>
         
         </div>
