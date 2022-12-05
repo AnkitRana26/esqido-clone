@@ -49,7 +49,7 @@ function Search(props){
 
      return (
         <div id="search">
-            <input ref={ref} onBlur={()=>{props.fun(false)}} onChange={debounceEg(getdata, 0)} id="myInput" placeholder="What are you looking for?"/>
+            <input ref={ref} onBlur={()=>{props.fun(false)}} style={{outline:"none"}} onChange={debounceEg(getdata, 0)} id="myInput" placeholder="What are you looking for?"/>
             {state.map((ele, idx)=>(
                 // setCnt((cnt)=>cnt+1);
                     <div className="item" onClick={()=>{nav(`/productdecription/${ele.id}`)}}>
