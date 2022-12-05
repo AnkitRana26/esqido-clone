@@ -26,9 +26,7 @@ function Navbar(){
 
     return (
         <div className="navbar">
-            <div id="top">
-                <p>Holiday Offer: Enjoy 25% OFF 2-PACK Eyeliner</p>
-            </div>
+            
             <div id="mid" onClick={closeSearch}>
                 <div>
                 <p>Shipping</p>
