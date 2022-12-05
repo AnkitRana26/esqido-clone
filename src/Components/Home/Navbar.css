@@ -45,6 +45,15 @@
     width: 8%;
     margin-right: -12%;
 } */
+#bottom>div:nth-child(3){
+    display: flex;
+    justify-content: space-between;
+    width: 50px;
+   
+    /* border: 2px solid green; */
+} 
+
+
 
 #navCont ul{
     list-style: none;

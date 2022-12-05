@@ -12,9 +12,7 @@ import Navsticky from '../Components/Home/Navsticky';
 
 function App() {
   return (
-    <div className="App">
-              
-              
+    <div className="App">   
               <AllRoutes/>
               
     </div>
