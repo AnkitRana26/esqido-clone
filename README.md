@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+#Esqido Clone Using React & Chakra UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##Tech Stack Used
+To clone the site we have coded everything from scratch using fundamental tools of Web Development, which are mentioned below :
+1. React library
+2. Chakra UI
+Also used Json Sever for fetching data to show over the website.
 
-## Available Scripts
+##Landing Page
+1.The Homepage of our cloned website is loaded with different animations and shows the various products which it offers.
+2.The top section of Home Page has a Search box from where user can search any specific product, at bottom of page there is a footer.
+3.There is also an account section for user details, and from there user can Sign up or Login to the website.
+4.Cart is also present at this page and user can directly check items of cart from Landing page itself.
 
-In the project directory, you can run:
+!["HomePage"]('https://miro.medium.com/max/1100/1*iGBZIUhEaf-T-8Q2SEIMKA.webp')
 
-### `npm start`
+##Sign Up & Login Page
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1.We have developed login and sign up feature for users visiting our website. This has been achieved by using Local Storage for storing details of each user.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+!['SignUp']('https://miro.medium.com/max/1100/1*-8dpf_v_iBtb5susTqnMQA.webp')
 
-### `npm test`
+##Product Page
+1.In this section each product of website is available and user can select any specific product and can add to cart.
+2.It also offers filter and sort option for searching specific item.
+3.We have also applied pagination to show specific number of product on each page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+!['ProdductPage']('https://miro.medium.com/max/1100/1*BT6sJh8a1ehr9c2nduZD2A.webp')
 
-### `npm run build`
+!['descriptionPage']('https://miro.medium.com/max/1100/1*5oG-lIDMOzT_efjbk_tLJQ.webp')
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##Cart Section
+1.At every page user can access cart section through Navbar.
+2.User can add items to cart and can also delete if needed. We have also added Coupon feature through cart section.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+!['Cart']('https://miro.medium.com/max/1100/1*ExLW1gW8EqhZaUYDLPVEQg.webp')
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##Checkout Page
+1.On this page user can check cart items and can add address for purchasing those items. Users can fill their card details through Debit card when making payment through payment page.
 
-### `npm run eject`
+!['Checkout']('https://miro.medium.com/max/1100/1*CbY3XbDTxeIjaxPW2Q9-cA.webp')
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+!['Checkout']('https://miro.medium.com/max/1100/1*tR_IL5Yjq_upn-WQQ8W8hQ.webp')
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
