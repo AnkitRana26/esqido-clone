@@ -31,7 +31,7 @@ Also used Json Sever for fetching data to show over the website.
 
 <h2>Cart Section</h2>
 1.At every page user can access cart section through Navbar.
-2.User can add items to cart and can also delete if needed. We have also added Coupon feature through cart section.
+2.User can add items to cart and can also delete if needed. We have also added Coupon feature through Cart section.
 
 !['Cart'](https://miro.medium.com/max/1100/1*ExLW1gW8EqhZaUYDLPVEQg.webp)
 
